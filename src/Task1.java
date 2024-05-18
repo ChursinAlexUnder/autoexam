@@ -4,9 +4,12 @@ public class Task1 extends Task {
     int students = randomize(7,9);
     int count1 = randomize(2,4);
     int count2=randomize(6, 8);
+    int photos1 = randomize(10, 13), photos2 = randomize(3, 7);
     public String fill() {
-            if (randomize(5, 6) == 5) {
-                return  "123";
+            if (randomize(5, 6) == 5 || randomize(5, 6) == 6) {
+                return  "1. В конверте " + photos1 + " фотографий, на двух из которых изображены отец и сын, объявленные в розыск. Следователь извлекает наугад последовательно без возвращения " +  photos2 + " фотографий. Найти вероятность того, что:\n" +
+                        "а) на первой из извлеченных фотографии будет отец, а на второй — сын;\n" +
+                        "б) фотография отца попадется раньше, чем фотография сына.\n";
             } else {
                 return variants + " вариантов контрольной работы по матема\n" +
                         "тике распределяются случайным образом среди "+students+"\n" +
