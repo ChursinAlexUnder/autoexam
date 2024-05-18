@@ -131,11 +131,17 @@ public class MyPanel extends JPanel {
                     XWPFDocument document = new XWPFDocument();
                     XWPFParagraph paragraph = document.createParagraph();
                     XWPFRun run = paragraph.createRun();
-                    Task[] task = new Task[]{new Task1(), new Task2()};
+                    Task[] task = new Task[]{new Task1(), new Task2(), new Task3(), new Task4(), new Task5(),
+                            new Task6(), new Task7(), new Task8(), new Task9(), new Task10(), new Task11(),
+                    new Task12(), new Task13(), new Task14(), new Task14(), new Task15(), new Task16(), new Task17(),
+                    new Task18(), new Task19(), new Task20(), new Task21()};
+                    int numbertask = 0;
                     for (int i = 0; i < 3; i++)
-                        for (int j = 0; j < 7; j++)
+                        for (int j = 0; j < 7; j++){
                             if (checkboxes[i][j].isSelected())
-                                run.setText(task[i+j].fill() + "\n\n");
+                                run.setText(task[numbertask].fill() + "\n\n");
+                            numbertask++;
+                        }
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
                     out_variants.close();
