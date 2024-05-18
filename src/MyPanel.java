@@ -48,7 +48,8 @@ public class MyPanel extends JPanel {
                     XWPFDocument document = new XWPFDocument();
                     XWPFParagraph paragraph = document.createParagraph();
                     XWPFRun run = paragraph.createRun();
-                    run.setText("mission completed!");
+                    Task1 task = new Task1();
+                    run.setText(task.fill());
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
                     out_variants.close();
