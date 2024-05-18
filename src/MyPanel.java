@@ -17,9 +17,9 @@ public class MyPanel extends JPanel {
     JButton button_generator, selectAll;
     Integer[] options = new Integer[30];
     JComboBox<Integer> select_quantity;
-    JLabel countVar = new JLabel("Количесвто вариантов: ");
+    JLabel countVar = new JLabel("Выберите количество вариантов: ");
     MyListener m = new MyListener();
-    JPanel selectAllPanel = new JPanel(), select_quantityPanel = new JPanel(), button_generatorPanel = new JPanel();
+    JPanel buttonsPanel = new JPanel(), select_quantityPanel = new JPanel(), centerPanel = new JPanel(new GridBagLayout());
 
     MyPanel() {
 
@@ -62,18 +62,38 @@ public class MyPanel extends JPanel {
             }
             columnPanelContainer.add(columnPanel);
         }
-
         // добавление столбцов с галочками в центральную область основного JPanel
         add(columnPanelContainer, BorderLayout.CENTER);
 
-        // кнопка "выбрать всё"
+        // кнопка "выбрать всё" и "сгенерировать"
+        buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.Y_AXIS));
+
         selectAll = new JButton("Выбрать все");
         selectAll.addActionListener(m);
-        selectAllPanel.add(selectAll);
-        selectAllPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 180, 50));
+        selectAll.setBackground(Color.decode("#48d1cc"));
+        selectAll.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonsPanel.add(selectAll);
+        buttonsPanel.add(Box.createRigidArea(new Dimension(0, 90)));
 
-        // добавление кнопки "выбрать всё" в нижнюю область основного JPanel
-        add(selectAllPanel, BorderLayout.SOUTH);
+        button_generator = new JButton("Сгенерировать");
+        button_generator.addActionListener(m);
+        button_generator.setMargin(new Insets(20, 50, 20, 50));
+        button_generator.setBackground(Color.decode("#00ffa6"));
+        Font currentFont = button_generator.getFont();
+        Font newFont = new Font(currentFont.getName(), currentFont.getStyle(), 20);
+        button_generator.setFont(newFont);
+        button_generator.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonsPanel.add(button_generator);
+
+        buttonsPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 45, 50));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(0, 50, 0, 50);
+        centerPanel.add(buttonsPanel, gbc);
+        add(centerPanel, BorderLayout.SOUTH);
 
         //заполнение массива для множественного выбора
         for (int i = 0; i < 30; i++)
@@ -83,15 +103,9 @@ public class MyPanel extends JPanel {
         select_quantity = new JComboBox<>(options);
         select_quantity.addActionListener(m);
         select_quantity.setBounds(50, 50, 90, 20);
+        select_quantityPanel.add(countVar);
         select_quantityPanel.add(select_quantity);
-
         add(select_quantityPanel, BorderLayout.NORTH);
-
-        // добавление кнопки для генерации вариантов
-        button_generator = new JButton("Сгенерировать: ");
-        button_generator.addActionListener(m);
-        button_generatorPanel.add(button_generator);
-        add(button_generatorPanel, BorderLayout.SOUTH);
     }
 
     class MyListener implements ActionListener {
