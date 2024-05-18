@@ -1,3 +1,4 @@
+import org.apache.poi.xwpf.usermodel.BreakType;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
@@ -132,18 +133,27 @@ public class MyPanel extends JPanel {
                     XWPFParagraph[] paragraph = new XWPFParagraph[selectedValue];
                     for (int i = 0; i < selectedValue; i++) {
                         paragraph[i] = document.createParagraph();
-                        XWPFRun run = paragraph[i].createRun();
+                        XWPFRun run1 = paragraph[i].createRun();
+                        XWPFRun run2 = paragraph[i].createRun();
                         Task[] task = new Task[]{new Task1(), new Task2(), new Task3(), new Task4(), new Task5(),
                                 new Task6(), new Task7(), new Task8(), new Task9(), new Task10(), new Task11(),
-                                new Task12(), new Task13(), new Task14(), new Task14(), new Task15(), new Task16(), new Task17(),
+                                new Task12(), new Task13(), new Task14(), new Task15(), new Task16(), new Task17(),
                                 new Task18(), new Task19(), new Task20(), new Task21()};
-                        int numbertask = 0;
+                        int numbertask = 0, index = i+1;
+                        run1.setText("Вариант - "+ index);
+                        run1.addBreak();
                         for (int k = 0; k < 3; k++)
                             for (int j = 0; j < 7; j++) {
-                                if (checkboxes[k][j].isSelected())
-                                    run.setText(task[numbertask].fill() + "\n\n");
+                                if (checkboxes[k][j].isSelected()) {
+                                    run2.setText(task[numbertask].fill());
+                                    run2.addBreak();
+                                    run2.addBreak();
+                                }
                                 numbertask++;
                             }
+                        XWPFParagraph paragraphBreak = document.createParagraph();
+                        XWPFRun runBreak = paragraphBreak.createRun();
+                        runBreak.addBreak(BreakType.PAGE);
                     }
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
