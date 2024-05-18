@@ -153,7 +153,7 @@ public class MyPanel extends JPanel {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-                System.exit(0);
+//                System.exit(0);
             }
         }
     }
