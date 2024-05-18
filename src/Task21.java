@@ -1,10 +1,16 @@
 public class Task21 extends Task {
+<<<<<<< Updated upstream
     int sigma = randomize(1, 2)*10;
     int mat = randomize(9, 11)*10;
     int vagon = randomize(8, 10)*10;
+=======
+    int m = randomize(2, 4), sigma = randomize(2, 3), t1 = randomize(5, 7), t2 = randomize(8, 9);
+>>>>>>> Stashed changes
     public String fill() {
-        if (randomize(5,6) == 5) {
-            return  "";
+        if (randomize(5, 6) == 5) {
+            return  "21. Случайная величина — период накопления состава на сортировочном пути — распределена по\n" +
+                    " нормальному закону с параметрами m = " + m + " ч и σ = " + sigma + " ч. Какова вероятность того, что случайная\n" +
+                    " величина будет заключена между " + t1 + " и " + t2 + " часами?\n";
         } else {
             return "21. Число вагонов в прибывающем на расформирование\n" +
                     "составе является случайной величиной, распределенной\n" +

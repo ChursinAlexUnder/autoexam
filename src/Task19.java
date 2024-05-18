@@ -1,10 +1,17 @@
 public class Task19 extends Task {
+<<<<<<< Updated upstream
     int m = randomize(0,2)*10;
     double sigma = randomized(0.4, 0.6, 10.0);
     double p_long = randomized(0.7, 0.9, 10.0);
+=======
+    int m = randomize(3, 15);
+    double sigma = randomized(0.1, 0.5, 10.0);
+>>>>>>> Stashed changes
     public String fill() {
-        if (randomize(5,6) == 5) {
-            return  "";
+        if (randomize(5, 6) == 5) {
+            return  "19. Станок-автомат изготавливает валики, контролируя их диаметр X. Считая, что X распределено\n" +
+                    " нормально (m = " + m + " мм, σ = " + sigma + " мм), найти интервал, в котором с вероятностью 0,9973 будут\n" +
+                    " заключены диаметры изготавливаемых валиков.\n";
         } else {
             return "19. Отклонение длины L изготавливаемых деталей от\n" +
                     "стандарта есть случайная величина, распределенная по\n" +
