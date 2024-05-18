@@ -137,7 +137,7 @@ public class MyPanel extends JPanel {
                     new Task18(), new Task19(), new Task20(), new Task21()};
                     int numbertask = 0;
                     for (int i = 0; i < 3; i++)
-                        for (int j = 0; j < 7; j++){
+                        for (int j = 0; j < 7; j++) {
                             if (checkboxes[i][j].isSelected())
                                 run.setText(task[numbertask].fill() + "\n\n");
                             numbertask++;
