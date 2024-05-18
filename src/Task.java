@@ -5,7 +5,9 @@ public class Task {
     public int randomize(int min, int max) {
         return random.nextInt((max - min) + 1) + min;
     }
-    public double randomize(double min, double max){
-        return random.nextDouble((max - min) + 1) + min;
+    public double randomized(double min, double max, double znak) {
+        double randomNumber = min + (max - min) * random.nextDouble();
+        return Math.round(randomNumber * znak) / znak;
     }
+
 }
