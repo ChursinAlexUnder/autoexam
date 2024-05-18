@@ -55,6 +55,7 @@ public class MyPanel extends JPanel {
                 gbc.insets = new Insets(0, 0, 15, 10);
 
                 itemPanel.add(checkboxes[i][j], gbc);
+                checkboxes[i][j].addActionListener(m);
                 gbc.gridx = 1;
                 itemPanel.add(labels[i][j], gbc);
                 columnPanel.add(itemPanel);
@@ -117,7 +118,10 @@ public class MyPanel extends JPanel {
                     XWPFParagraph paragraph = document.createParagraph();
                     XWPFRun run = paragraph.createRun();
                     Task[] task = new Task[]{new Task1(), new Task2()};
-                    for (int i = 0; i < 2; i++) run.setText(task[i].fill());
+                    for (int i = 0; i < 3; i++)
+                        for (int j = 0; j < 7; j++)
+                            if (checkboxes[i][j].isSelected())
+                                run.setText(task[i+j].fill() + "\n\n");
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
                     out_variants.close();
