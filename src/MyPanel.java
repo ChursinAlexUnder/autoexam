@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MyPanel extends JPanel {
-    
+
     int numTask = 1, rows = 3, columns = 7;
     JCheckBox[][] checkboxes = new JCheckBox[rows][columns];
     JLabel[][] labels = new JLabel[rows][columns];
@@ -107,7 +107,7 @@ public class MyPanel extends JPanel {
                     }
                 }
             }
-            
+
             //Если нажата кнопка сгенерировать вараинты заданий к ним и ответы
             if (e.getSource() == button_generator) {
 
@@ -116,8 +116,8 @@ public class MyPanel extends JPanel {
                     XWPFDocument document = new XWPFDocument();
                     XWPFParagraph paragraph = document.createParagraph();
                     XWPFRun run = paragraph.createRun();
-                    Task1 task = new Task1();
-                    run.setText(task.fill());
+                    Task[] task = new Task[]{new Task1(), new Task2()};
+                    for (int i = 0; i < 2; i++) run.setText(task[i].fill());
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
                     out_variants.close();
