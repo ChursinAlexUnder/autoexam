@@ -17,11 +17,11 @@ public class MyPanel extends JPanel {
     JButton button_generator, selectAll;
     Integer[] options = new Integer[30];
     JComboBox<Integer> select_quantity;
+    JLabel countVar = new JLabel("Количесвто вариантов: ");
     MyListener m = new MyListener();
+    JPanel selectAllPanel = new JPanel(), select_quantityPanel = new JPanel(), button_generatorPanel = new JPanel();
 
     MyPanel() {
-
-        JPanel selectAllPanel = new JPanel();
 
         // изменение основного JPanel для использования BorderLayout
         setLayout(new BorderLayout());
@@ -35,7 +35,7 @@ public class MyPanel extends JPanel {
 
             // регулировки для столбцов целиком
             columnPanel.setLayout(new GridLayout(0, 1));
-            columnPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 10, 50));
+            columnPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 10, 50));
 
             for (int j = 0; j < columns; j++) {
                 checkboxes[i][j] = new JCheckBox();
@@ -70,7 +70,7 @@ public class MyPanel extends JPanel {
         selectAll = new JButton("Выбрать все");
         selectAll.addActionListener(m);
         selectAllPanel.add(selectAll);
-        selectAllPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 200, 50));
+        selectAllPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 180, 50));
 
         // добавление кнопки "выбрать всё" в нижнюю область основного JPanel
         add(selectAllPanel, BorderLayout.SOUTH);
@@ -83,14 +83,15 @@ public class MyPanel extends JPanel {
         select_quantity = new JComboBox<>(options);
         select_quantity.addActionListener(m);
         select_quantity.setBounds(50, 50, 90, 20);
-        add(select_quantity);
+        select_quantityPanel.add(select_quantity);
+
+        add(select_quantityPanel, BorderLayout.NORTH);
 
         // добавление кнопки для генерации вариантов
         button_generator = new JButton("Сгенерировать: ");
         button_generator.addActionListener(m);
-        add(button_generator);
-
-
+        button_generatorPanel.add(button_generator);
+        add(button_generatorPanel, BorderLayout.SOUTH);
     }
 
     class MyListener implements ActionListener {
