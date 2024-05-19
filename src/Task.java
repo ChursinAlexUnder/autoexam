@@ -10,6 +10,16 @@ public class Task {
         return Math.round(randomNumber * znak) / znak;
     }
     public String answer() {return "";}
+//    public int gcd(int a, int b) {
+//        if (a == 0 && b == 0)
+//            return 1;
+//        if (a == 0 || b == 0)
+//            return (a == 0) ? b : a;
+//        int remainder = a % b;
+//        if (remainder == 0) {
+//            return b;
+//        } else return gcd(b, remainder);
+//    }
 
 
 }
