@@ -10,6 +10,17 @@ public class Task {
         return Math.round(randomNumber * znak) / znak;
     }
     public String answer() {return "";}
+    public String reduction(int a, int b) {
+        int temp1 = a, temp2 = b;
+        while (temp2 != 0) {
+            int temp3 = temp2;
+            temp2 = temp1 % temp2;
+            temp1 = temp3;
+        }
+        a /= temp1;
+        b /= temp1;
+        return a + "/" + b;
+    }
 
 
 }
