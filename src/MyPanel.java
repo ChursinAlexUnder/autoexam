@@ -137,24 +137,42 @@ public class MyPanel extends JPanel {
 
                 try {
                     XWPFDocument document = new XWPFDocument();
+                    XWPFDocument document_ans = new XWPFDocument();
                     XWPFParagraph[] paragraph = new XWPFParagraph[selectedValue];
+                    XWPFParagraph[] paragraph_ans = new XWPFParagraph[selectedValue];
                     for (int i = 0; i < selectedValue; i++) {
+
                         paragraph[i] = document.createParagraph();
                         XWPFRun run1 = paragraph[i].createRun();
                         XWPFRun run2 = paragraph[i].createRun();
+
+                        paragraph_ans[i] = document_ans.createParagraph();
+                        XWPFRun run1_ans = paragraph_ans[i].createRun();
+                        XWPFRun run2_ans = paragraph_ans[i].createRun();
+
                         Task[] task = new Task[]{new Task1(), new Task2(), new Task3(), new Task4(), new Task5(),
                                 new Task6(), new Task7(), new Task8(), new Task9(), new Task10(), new Task11(),
                                 new Task12(), new Task13(), new Task14(), new Task15(), new Task16(), new Task17(),
                                 new Task18(), new Task19(), new Task20(), new Task21()};
+
                         int numbertask = 0, index = i + 1;
                         run1.setText("Вариант - " + index);
                         run1.setFontSize(18);
                         run1.setTextPosition(50);
                         run1.addBreak();
+
+                        run1_ans.setText("Вариант - " + index);
+                        run1_ans.setFontSize(18);
+                        run1_ans.setTextPosition(50);
+                        run1_ans.addBreak();
+
                         for (int k = 0; k < 3; k++)
                             for (int j = 0; j < 7; j++) {
                                 if (checkboxes[k][j].isSelected()) {
+
                                     run2.setText(task[numbertask].fill());
+                                    run2_ans.setText(task[numbertask].answer());
+
                                     if (numbertask == 15 || numbertask == 16 || numbertask == 17) {
                                         run2.addBreak();
                                         int numbertask_img = numbertask + 1;
@@ -166,6 +184,7 @@ public class MyPanel extends JPanel {
                                         run2.addPicture(imageStream, XWPFDocument.PICTURE_TYPE_PNG, "variant", Units.toEMU(140), Units.toEMU(75));
                                         imageStream.close();
                                     }
+
                                     // вставка таблицы
                                     if (numbertask == 14) {
                                         // Создание таблицы X
@@ -199,6 +218,8 @@ public class MyPanel extends JPanel {
                                             tableRow.setHeight(130);
                                         }
                                     }
+                                    run2_ans.addBreak();
+                                    run2_ans.addBreak();
                                     run2.addBreak();
                                     run2.addBreak();
                                 }
@@ -207,31 +228,29 @@ public class MyPanel extends JPanel {
                         XWPFParagraph paragraphBreak = document.createParagraph();
                         XWPFRun runBreak = paragraphBreak.createRun();
                         runBreak.addBreak(BreakType.PAGE);
+
+                        XWPFParagraph paragraphBreak_ans = document_ans.createParagraph();
+                        XWPFRun runBreak_ans = paragraphBreak_ans.createRun();
+                        runBreak_ans.addBreak(BreakType.PAGE);
                     }
+
+
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
                     out_variants.close();
                     document.close();
+
+                    FileOutputStream out_answers = new FileOutputStream("Ответы.docx");
+                    document_ans.write(out_answers);
+                    out_answers.close();
+                    document_ans.close();
+
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (InvalidFormatException ex) {
                     throw new RuntimeException(ex);
                 }
-
-                // заполнение файла с ответами
-                try {
-                    XWPFDocument document = new XWPFDocument();
-                    XWPFParagraph paragraph = document.createParagraph();
-                    XWPFRun run = paragraph.createRun();
-                    run.setText("Ура!");
-                    FileOutputStream out_answers = new FileOutputStream("Ответы.docx");
-                    document.write(out_answers);
-                    out_answers.close();
-                    document.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-//                System.exit(0);
+                //System.exit(0);
             }
         }
     }

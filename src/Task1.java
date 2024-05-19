@@ -31,4 +31,7 @@ public class Task1 extends Task {
         return m + "/" + znam;
     }
 
+    public String answer() {
+        return "1. Работает";
+    }
 }

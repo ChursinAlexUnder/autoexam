@@ -10,4 +10,6 @@ public class Task {
         return Math.round(randomNumber * znak) / znak;
     }
     public String answer() {return "";}
+
+
 }
