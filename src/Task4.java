@@ -3,7 +3,6 @@ public class Task4 extends Task {
     double first = randomized(0.6, 0.7, 10.0);
     double second = randomized(0.4, 0.6, 10.0);
     int variant = randomize(5, 6);
-
     public String fill() {
         if (variant == 5) {
             return  "4. Вероятность опоздания режиссера на репетицию равна " + regi + ", ведущей актрисы театра — " + actr + ". Какова вероятность того, что в среду:\n" +
