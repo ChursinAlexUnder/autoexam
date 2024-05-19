@@ -1,6 +1,8 @@
 public class Task15 extends Task {
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "15. Независимые случайные величины X и Y заданы таблицами распределений (смотреть ниже после заданий).\n" +
                     "Найти:\n" +
                     "1) M(X), M(Y), D(X), D(Y);\n" +
@@ -16,6 +18,13 @@ public class Task15 extends Task {
                     "3) M(Z1), M(Z2), D(Z1), D(Z2) непосредственно по таблицами\n" +
                     " распределений и на основании свойств математического\n" +
                     " ожидания и дисперсии";
+        }
+    }
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
         }
     }
 }

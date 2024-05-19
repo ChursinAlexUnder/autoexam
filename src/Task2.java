@@ -3,6 +3,7 @@ public class Task2 extends Task{
     int firstleague = randomize(4, 7);
     int count = randomize(1, 3);
     int variant = randomize(5, 6);
+
     public String fill() {
             if (variant == 5) {
                 return "2. В кассе осталось " + tickets1 + " билетов по 10 рублей, " + tickets2 + " — по 30 рублей и 2 — по 50. Покупатели наугад берут 3 билета. Найти вероятность того, что из этих билетов имеют одинаковую стоимость:\n" +
@@ -22,7 +23,17 @@ public class Task2 extends Task{
         if (variant == 5) {
             return "2. а) 2/3; б) 8/9.";
         } else {
-            return "";
+            int k = 8 - firstleague;
+            int n = 16 - firstleague;
+            String b = "";
+            for (int i = count; i <= firstleague; i++) {
+                int s = 8 - i;
+                if (firstleague > i)
+                    b += "C(" + firstleague + ", " + i + ")C(" + n + ", " + s + ") + ";
+                else b += "C(" + firstleague + ", " + i + ")C(" + n + ", " + s + ")";
+            }
+            b += "/C(16, 8)";
+            return "2. a) (C(" + n + ", " + k + ") + C(" + n + ", 8)/C(16, 8)); б) " + b;
         }
     }
 }

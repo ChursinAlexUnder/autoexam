@@ -22,7 +22,7 @@ public class Task3 extends Task {
             return "3. A = {1, 3, 5}; B = {1, 2, 4, 5, 6}; C = {1, 2, 3, 4, 6}\n" +
                     " а) {1}; б) {1, 2, 3, 4, 5, 6}; в) {2, 4, 6}.";
         }else {
-            return "";
+            return "3. A=(T1 ∧ T2 ∧ T3) ∧ (D1 ∧ D2 ∧ D3 ∧ D4) ∧ (R1 ∨ R2 ∨ R3 ∨ R4 ∨ R5)";
         }
     }
 }

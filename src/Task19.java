@@ -4,8 +4,10 @@ public class Task19 extends Task {
     double p_long = randomized(0.7, 0.9, 10.0);
     int m2 = randomize(3, 15);
     double sigma2 = randomized(0.1, 0.5, 10.0);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "19. Станок-автомат изготавливает валики, контролируя их диаметр X. Считая, что X распределено\n" +
                     " нормально (m = " + m2 + " мм, σ = " + sigma2 + " мм), найти интервал, в котором с вероятностью 0,9973 будут\n" +
                     " заключены диаметры изготавливаемых валиков.\n";
@@ -17,6 +19,12 @@ public class Task19 extends Task {
                     "длины деталей с вероятностью "+p_long+"?";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }
 
