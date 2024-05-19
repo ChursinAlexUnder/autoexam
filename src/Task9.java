@@ -20,9 +20,10 @@ public class Task9 extends Task {
     }
 
     public String answer() {
-        if (variant == 5) {
+        if(variant == 5){
+            
             return "";
-        } else {
+        }else {
             double ans = 0;
             for (int i = count1; i <= lights; i++)
                 ans += C(lights, i) * pow(p, i) * pow(1 - p, lights - i);

@@ -22,8 +22,11 @@ public class Task7 extends Task {
     }
 
     public String answer() {
-        if (variant == 5) {
-            return "";
+        if(variant == 5){
+            double trader11 = trader1, trader22 = trader2, trader33 = trader3;
+            double znam = trader11 + trader22 + trader33;
+            double ans = notail((trader11 / znam) * ver1 + (trader22 / znam) * ver2 + (trader33 / znam) * ver3);
+            return "7. " + ans + '.';
         } else {
             double ans = notail(((double) 1 / 3) * ((1 - doctor1) + (1 - doctor2) + (1 - doctor3)));
             return "7. "+ans;

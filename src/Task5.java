@@ -24,9 +24,10 @@ public class Task5 extends Task {
     }
 
     public String answer() {
-        if (variant == 5) {
-            return "";
-        } else {
+        if(variant == 5){
+            double ans = notail((1 - crush * crush) * (1 - crush) * (1 - crush * crush));
+            return "5. " + ans + ".";
+        }else {
             double ans = notail(baron * (1 - graf) + baron * (1 - baron) * (1 - graf) * (1 - graf) + (1 - baron) * (1 - baron) * (1 - graf) * (1 - graf));
             return "5. " + ans;
         }

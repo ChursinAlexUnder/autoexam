@@ -19,8 +19,9 @@ public class Task4 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            double answerA = notail(regi * actr), answerB = notail((1 - regi) * actr), answerC = notail((1 - regi) * (1 - actr));
+            return "4. а) " + answerA + "; б) " + answerB + " в) " + answerC + ".";
         }else {
             double ansA = notail(first + second - first*second);
             double ansB = notail(1 - ansA);
