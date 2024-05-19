@@ -3,8 +3,10 @@ public class Task14 extends Task {
 
     int count = randomize(1, 3) * 100;
     double line =randomized(0.02, 0.05, 100.0);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "14. Станок - автомат штампует детали. Вероятность того, что деталь окажется бракованной,\n" +
                     " равна " + brak + ". Составить ряд распределения бракованных деталей из " + count +" изготовленных. Найти M(X)\n" +
                     " этой случайной величины.\n";
@@ -14,6 +16,13 @@ public class Task14 extends Task {
                     " равна "+line+". Составить ряд распределения числа обрывов\n" +
                     " нити в течение одной минуты. Найти M(X) этой случайной\n" +
                     " величины.";
+        }
+    }
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
         }
     }
 }

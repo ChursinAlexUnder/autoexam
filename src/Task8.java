@@ -8,8 +8,10 @@ public class Task8 extends Task {
     double p_w = randomized(0.6, 0.9, 10.0);
     double p_s = randomized(0.5, 0.6,10.0);
     int count = randomize(2, 5);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "8. В зоопарке живут " + ken + " кенгуру, " + mur + " муравьедов и " + gor + " горилл. Условия содержания\n" +
                     " млекопитающих таковы, что вероятность заболеть у этих животных соответственно равна " + kenVer + ", " + murVer + "\n" +
                     " и " + gorVer + ". Животное, которое удалось поймать врачу, оказалось здоровым. Какова вероятность того, что\n" +
@@ -31,6 +33,12 @@ public class Task8 extends Task {
                     "что ей попался портрет музыканта?";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }
 

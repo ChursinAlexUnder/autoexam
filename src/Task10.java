@@ -4,8 +4,10 @@ public class Task10 extends Task {
     double boy = randomized(0.510, 0.535, 1000.0);
     int[] array = {60,70,80,90};
     int count = array[randomize(0,3)];
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "10. В каждом из " + allTest + " независимых испытаний событие А происходит с постоянной вероятностью " + ver + ".\n" +
                     " Найти вероятность того, что событие А наступит:\n" +
                     "а) точно " + kol + " раз;\n" +
@@ -17,5 +19,11 @@ public class Task10 extends Task {
                     "б) не менее половины мальчиков?";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }

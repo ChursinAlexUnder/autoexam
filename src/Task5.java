@@ -3,8 +3,10 @@ public class Task5 extends Task {
     double crush = randomized(0.1, 0.9, 10.0);
     double baron = randomized(0.4, 0.6,10.0);
     double graf = randomized(0.5,0.7, 10.0);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "5. При включении в сеть цепи, в которой на первом участке цепи параллельно подключены два\n" +
                     " элемента, на втором участке подключен один элемент, на третьем участке подключены\n" +
                     " параллельно два элемента, каждый элемент выходит из строя с вероятностью " + crush + ". Найти\n" +
@@ -19,6 +21,12 @@ public class Task5 extends Task {
                     "пока не закончатся все патроны.";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }
 

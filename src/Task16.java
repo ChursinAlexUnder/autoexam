@@ -3,8 +3,10 @@ public class Task16 extends Task {
     double b2 = randomized(1.6,2.5,10.0);
     double a1 = randomized(0.2, 0.6,10.0);
     double b1 = randomized(0.7, 0.9,10.0);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5,6) == 5) {
+        if (variant == 5) {
             return  "16. Дана функция распределения F(x) непрерывной случайной\n" +
                     "величины X.\n" +
                     "Требуется:" +
@@ -20,6 +22,13 @@ public class Task16 extends Task {
                     "2) построить графики F(x) и f(x);\n" +
                     "3) найти M(X), D(X), σ(Х);\n" +
                     "4) найти Р(a < X < b) для данных a = "+a2+", b = "+b2+".";
+        }
+    }
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
         }
     }
 }

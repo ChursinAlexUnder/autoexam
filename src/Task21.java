@@ -3,8 +3,10 @@ public class Task21 extends Task {
     int mat = randomize(9, 11)*10;
     int vagon = randomize(8, 10)*10;
     int m = randomize(2, 4), sigma2 = randomize(2, 3), t1 = randomize(5, 7), t2 = randomize(8, 9);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "21. Случайная величина — период накопления состава на сортировочном пути — распределена по\n" +
                     " нормальному закону с параметрами m = " + m + " ч и σ = " + sigma2 + " ч. Какова вероятность того, что случайная\n" +
                     " величина будет заключена между " + t1 + " и " + t2 + " часами?\n";
@@ -15,5 +17,11 @@ public class Task21 extends Task {
                     "Определить вероятность того, что в составе будет не более\n" +vagon+" вагонов";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }

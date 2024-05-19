@@ -4,8 +4,10 @@ public class Task7 extends Task {
     double doctor1 = randomized(0.4, 0.6, 10.0);
     double doctor2 = randomized(0.6, 0.8, 10.0);
     double doctor3 = randomized(0.7, 0.8, 10.0);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "7. Три торговца сыром продают за день " + trader1 + ", " + trader2 + " и " + trader3 + "% своей продукции, допуская при подсчете\n" +
                     " стоимости товара ошибку с вероятностью " + ver1 + ", " + ver2 + " и " + ver3 + " соответственно. Какова вероятность того,\n" +
                     " что покупатель сыра, выбравший продавца наугад, будет обманут?\n";
@@ -18,6 +20,12 @@ public class Task7 extends Task {
                     " врача случайным образом?";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }
 

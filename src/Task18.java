@@ -2,8 +2,10 @@ public class Task18 extends Task {
     double a1 = -randomized(0.3,0.7,10.0);
     double b1 = randomized(0.4,0.7,10.0);
     int b2 = randomize(1,2);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5,6) == 5) {
+        if (variant == 5) {
             return  "18. Дана плотность вероятности f(x) непрерывной случайной\n" +
                     "величины X, имеющая две ненулевые составляющие\n" +
                     "формулы.\n" +
@@ -25,6 +27,12 @@ public class Task18 extends Task {
                     "5) найти М(Х), D(X), σ(X).";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }
 

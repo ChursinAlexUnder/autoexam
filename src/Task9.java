@@ -3,8 +3,10 @@ public class Task9 extends Task {
     int lights = randomize(4, 7);
     double p = randomized(0.02, 0.05,100.0);
     int count1 = randomize(2,4);
+    int variant = randomize(5, 6);
+
     public String fill() {
-        if (randomize(5, 6) == 5) {
+        if (variant == 5) {
             return  "9. Вероятность отказа локомотива на линии за время полного оборота составляет " + ver + ". Найти\n" +
                     " вероятность того, что в восьми поездах произойдет не более двух отказов локомотива на линии.\n";
         } else {
@@ -14,6 +16,12 @@ public class Task9 extends Task {
                     count1+" лампочек.\n";
         }
     }
-
+    public String answer() {
+        if(variant==5){
+            return "";
+        }else {
+            return "";
+        }
+    }
 }
 
