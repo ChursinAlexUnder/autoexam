@@ -1,12 +1,13 @@
-import org.apache.poi.xwpf.usermodel.BreakType;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
+import com.microsoft.schemas.office.office.CTR;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.util.Units;
+import org.apache.poi.xwpf.usermodel.*;
 
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -139,13 +140,26 @@ public class MyPanel extends JPanel {
                                 new Task6(), new Task7(), new Task8(), new Task9(), new Task10(), new Task11(),
                                 new Task12(), new Task13(), new Task14(), new Task15(), new Task16(), new Task17(),
                                 new Task18(), new Task19(), new Task20(), new Task21()};
-                        int numbertask = 0, index = i+1;
-                        run1.setText("Вариант - "+ index);
+                        int numbertask = 0, index = i + 1;
+                        run1.setText("Вариант - " + index);
+                        run1.setFontSize(18);
+                        run1.setTextPosition(50);
                         run1.addBreak();
                         for (int k = 0; k < 3; k++)
                             for (int j = 0; j < 7; j++) {
                                 if (checkboxes[k][j].isSelected()) {
                                     run2.setText(task[numbertask].fill());
+                                    if (numbertask == 15 || numbertask == 16 || numbertask == 17) {
+                                        run2.addBreak();
+                                        int numbertask_img = numbertask + 1;
+                                        String variant = Integer.toString(numbertask_img);
+                                        if (task[i].randomize(5, 6) == 5)
+                                            variant += "_5.png";
+                                        else variant += "_6.png";
+                                        FileInputStream imageStream = new FileInputStream(System.getProperty("user.dir") + "/src/" + variant);
+                                        run2.addPicture(imageStream, XWPFDocument.PICTURE_TYPE_PNG, "variant", Units.toEMU(140), Units.toEMU(75));
+                                        imageStream.close();
+                                    }
                                     run2.addBreak();
                                     run2.addBreak();
                                 }
@@ -161,6 +175,8 @@ public class MyPanel extends JPanel {
                     document.close();
                 } catch (IOException ex) {
                     ex.printStackTrace();
+                } catch (InvalidFormatException ex) {
+                    throw new RuntimeException(ex);
                 }
 
                 // заполнение файла с ответами
