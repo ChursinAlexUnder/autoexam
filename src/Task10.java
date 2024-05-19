@@ -23,7 +23,7 @@ public class Task10 extends Task {
         if(variant==5){
             return "";
         }else {
-            return "";
+            return "10. "+f(0.269)+" "+F(1.43);
         }
     }
 }

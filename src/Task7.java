@@ -8,26 +8,28 @@ public class Task7 extends Task {
 
     public String fill() {
         if (variant == 5) {
-            return  "7. Три торговца сыром продают за день " + trader1 + ", " + trader2 + " и " + trader3 + "% своей продукции, допуская при подсчете\n" +
+            return "7. Три торговца сыром продают за день " + trader1 + ", " + trader2 + " и " + trader3 + "% своей продукции, допуская при подсчете\n" +
                     " стоимости товара ошибку с вероятностью " + ver1 + ", " + ver2 + " и " + ver3 + " соответственно. Какова вероятность того,\n" +
                     " что покупатель сыра, выбравший продавца наугад, будет обманут?\n";
         } else {
             return "7. В диагностическом центре прием больных ведут три\n" +
                     "невропатолога: Фридман, Гудман и Шеерман, которые ставят\n" +
-                    " правильный диагноз с вероятностью "+doctor1+", "+doctor2+" и "+doctor3+" соотвественно.\n" +
+                    " правильный диагноз с вероятностью " + doctor1 + ", " + doctor2 + " и " + doctor3 + " соотвественно.\n" +
                     " Какова вероятность того, что больному Сидорову\n" +
                     " будет поставлен неверный диагноз, если он выбирает\n" +
                     " врача случайным образом?";
         }
     }
+
     public String answer() {
         if(variant == 5){
             double trader11 = trader1, trader22 = trader2, trader33 = trader3;
             double znam = trader11 + trader22 + trader33;
             double ans = notail((trader11 / znam) * ver1 + (trader22 / znam) * ver2 + (trader33 / znam) * ver3);
             return "7. " + ans + '.';
-        }else {
-            return "";
+        } else {
+            double ans = notail(((double) 1 / 3) * ((1 - doctor1) + (1 - doctor2) + (1 - doctor3)));
+            return "7. "+ans;
         }
     }
 }
