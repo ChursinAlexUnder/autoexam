@@ -18,8 +18,9 @@ public class Task3 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            return "3. A = {1, 3, 5}; B = {1, 2, 4, 5, 6}; C = {1, 2, 3, 4, 6}\n" +
+                    " а) {1}; б) {1, 2, 3, 4, 5, 6}; в) {2, 4, 6}.";
         }else {
             return "";
         }
