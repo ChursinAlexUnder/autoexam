@@ -34,8 +34,12 @@ public class Task8 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            double ken1 = ken, mur1 = mur, gor1 = gor;
+            double znam = ken1 + mur1 + gor1;
+            double ans1 = (ken1 / znam) * (1 - kenVer) + (mur1 / znam) * (1 - murVer) + (gor1 / znam) * (1 - gorVer);
+            double ans = notail(((mur1 / znam) * (1 - murVer)) / ans1);
+            return "8. " + ans + '.';
         }else {
             return "";
         }

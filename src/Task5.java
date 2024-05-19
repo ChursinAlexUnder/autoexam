@@ -22,8 +22,9 @@ public class Task5 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            double ans = notail((1 - crush * crush) * (1 - crush) * (1 - crush * crush));
+            return "5. " + ans + ".";
         }else {
             return "";
         }

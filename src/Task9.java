@@ -17,7 +17,8 @@ public class Task9 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
+        if(variant == 5){
+            
             return "";
         }else {
             return "";

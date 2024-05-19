@@ -16,8 +16,12 @@ public class Task6 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            double knowTick1 = knowTick, allTick1 = allTick;
+            double ans1 = notail(knowTick1 / allTick1);
+            double ans2 = notail(((allTick1 - knowTick1) / allTick1) * (knowTick1 / (allTick1 - 1)));
+            double ans = notail(ans1 + ans2);
+            return "6. " + ans + ".";
         }else {
             return "";
         }
