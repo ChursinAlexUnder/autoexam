@@ -28,10 +28,7 @@ public class Task1 extends Task {
         for (int i = 0; i < (photos1-photos2); i++) {
             znam *= photos1 - i;
         }
+        
         return m + "/" + znam;
-    }
-
-    public String answer() {
-        return "1. Работает";
     }
 }
