@@ -1,7 +1,6 @@
 public class Task1 extends Task {
     int variants = randomize(10, 12);
     int students = randomize(7, 9);
-    int count1 = randomize(2, 4);
     int count2 = randomize(6, 8);
     int photos1 = randomize(10, 13), photos2 = randomize(5, 7);
     int variant = randomize(5, 6);
@@ -16,7 +15,7 @@ public class Task1 extends Task {
                     " распределяются случайным образом среди " + students + "\n" +
                     " студентов, сидящих в одном ряду. Каждый получает по\n" +
                     "одному варианту. Найти вероятность того, что:\n" +
-                    "а) варианты 1-й и 2-й достанутся первым " + count1 + " студентам;\n" +
+                    "а) варианты 1-й и 2-й достанутся первым двум студентам;\n" +
                     "б) первые " + count2 + " вариантов распределятся последовательно.";
         }
     }
@@ -34,9 +33,6 @@ public class Task1 extends Task {
                 znamA *= photos1 - i;
             }
             znamB = znamA;
-
-            // б
-            // 3 2, 9 6, 33 24
             int sum = 1;
             for (int i = 2; i < photos2; i++) {
                 sum += i;
@@ -44,13 +40,19 @@ public class Task1 extends Task {
             mB *= sum;
             return "1. а) " + reduction(mA, znamA) + "; " + "б) " + reduction(mB, znamB) + ".";
         } else {
-            int numerator = 1;
-            for (int i = 0; i < students; i++)
-                numerator *= students - i;
-            int znam = 1;
-            for (int i = 0; i < variants; i++)
-                znam *= variants - i;
-            return reduction(numerator, znam);
+            //a)
+            int numerator = 2, numerator2 = 2;
+            for (int i = variants - 2; i > variants - students; i--)
+                numerator *= i;
+            int znam = 1, znam2 = 1;
+            for (int i = variants; i > variants - students; i--)
+                znam *= i;
+            //b)
+            for (int i = variants - count2; i > variants - students; i--)
+                numerator2 *= i;
+            for (int i = variants; i > variants - students; i--)
+                znam2 *= i;
+            return "1. " + "a) " + reduction(numerator, znam) + " b) " + reduction(numerator2, znam2) + ".";
         }
     }
 }
