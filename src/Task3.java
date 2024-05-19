@@ -21,7 +21,7 @@ public class Task3 extends Task {
         if(variant==5){
             return "";
         }else {
-            return "";
+            return "3. A=(T1 ∧ T2 ∧ T3) ∧ (D1 ∧ D2 ∧ D3 ∧ D4) ∧ (R1 ∨ R2 ∨ R3 ∨ R4 ∨ R5)";
         }
     }
 }

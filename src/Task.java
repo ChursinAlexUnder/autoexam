@@ -40,4 +40,7 @@ public class Task {
         }
         return C(n - 1, k - 1) + C(n - 1, k);
     }
+    public double notail(double a){
+        return Math.round(a*10000.0)/10000.0;
+    }
 }

@@ -1,6 +1,6 @@
 public class Task4 extends Task {
     double regi = randomized(0.1, 0.3, 10.0), actr = randomized(0.3, 0.6, 10.0);
-    double first = randomized(0.6, 0.8, 10.0);
+    double first = randomized(0.6, 0.7, 10.0);
     double second = randomized(0.4, 0.6, 10.0);
     int variant = randomize(5, 6);
 
@@ -23,7 +23,10 @@ public class Task4 extends Task {
         if(variant==5){
             return "";
         }else {
-            return "";
+            double ansA = notail(first + second - first*second);
+            double ansB = notail(1 - ansA);
+            double ansC = notail(first*(1-second));
+            return "4. a) P(A) = "+ansA+"; б) P(B) = "+ansB+"; в) P(C) = "+ansC;
         }
     }
 }
