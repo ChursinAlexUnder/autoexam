@@ -1,3 +1,6 @@
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
+
 public class Task10 extends Task {
     int allTest = randomize(4, 6) * 100, kol = randomize(20, 30) * 10, kol1 = randomize(10, 20) * 10, kol2 = randomize(25, 30) * 10;
     double ver = randomized(0.3, 0.6, 10.0);
@@ -23,6 +26,7 @@ public class Task10 extends Task {
         if(variant==5){
             return "";
         }else {
+            double x = abs(notail((count - count/2*boy)/sqrt(count*boy*(1-boy))));
             return "10. "+f(0.269)+" "+F(1.43);
         }
     }
