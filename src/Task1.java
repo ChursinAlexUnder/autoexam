@@ -7,12 +7,12 @@ public class Task1 extends Task {
     int variant = randomize(5, 6);
 
     public String fill() {
-            if (variant == 5) {
-                return  "1. В конверте " + photos1 + " фотографий, на двух из которых изображены отец и сын, объявленные в розыск. Следователь извлекает наугад последовательно без возвращения " +  photos2 + " фотографий. Найти вероятность того, что:\n" +
-                        "а) на первой из извлеченных фотографии будет отец, а на второй — сын;\n" +
-                        "б) фотография отца попадется раньше, чем фотография сына.\n";
-            } else {
-                return "1. " + variants + " вариантов контрольной работы по математике\n" +
+        if (variant == 5) {
+            return "1. В конверте " + photos1 + " фотографий, на двух из которых изображены отец и сын, объявленные в розыск. Следователь извлекает наугад последовательно без возвращения " + photos2 + " фотографий. Найти вероятность того, что:\n" +
+                    "а) на первой из извлеченных фотографии будет отец, а на второй — сын;\n" +
+                    "б) фотография отца попадется раньше, чем фотография сына.\n";
+        } else {
+            return "1. " + variants + " вариантов контрольной работы по математике\n" +
                     " распределяются случайным образом среди " + students + "\n" +
                     " студентов, сидящих в одном ряду. Каждый получает по\n" +
                     "одному варианту. Найти вероятность того, что:\n" +
@@ -24,26 +24,25 @@ public class Task1 extends Task {
     public String answer() {
         if (variant == 5) {
             // а
-            int mA = 1, mB = 1;
+            int mA = 1, mB;
             for (int i = 2; i < photos2; i++) {
                 mA *= photos1 - i;
             }
             mB = mA;
-            int znamA = 1, znamB = 1;
-            for (int i = 0; i < (photos1-photos2); i++) {
+            int znamA = 1, znamB;
+            for (int i = 0; i < photos2; i++) {
                 znamA *= photos1 - i;
             }
             znamB = znamA;
 
             // б
-            int sum = 1, factorial = 1;
+            // 3 2, 9 6, 33 24
+            int sum = 1;
             for (int i = 2; i < photos2; i++) {
-                factorial *= i;
-                sum += factorial;
+                sum += i;
             }
             mB *= sum;
-
-            return "a) " + reduction(mA, znamA);
+            return "1. а) " + reduction(mA, znamA) + "; " + "б) " + reduction(mB, znamB) + ".";
         } else {
             int numerator = 1;
             for (int i = 0; i < students; i++)
@@ -51,7 +50,7 @@ public class Task1 extends Task {
             int znam = 1;
             for (int i = 0; i < variants; i++)
                 znam *= variants - i;
-            int ob = gcd(numerator, znam);
-            return "a) "+ numerator/ob +"/"+znam/ob+"M";
+            return reduction(numerator, znam);
         }
+    }
 }
