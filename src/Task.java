@@ -9,4 +9,5 @@ public class Task {
         double randomNumber = min + (max - min) * random.nextDouble();
         return Math.round(randomNumber * znak) / znak;
     }
+    public String answer(){return "";}
 }

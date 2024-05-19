@@ -22,4 +22,7 @@ public class Task1 extends Task {
             }
     }
 
+    public String answer() {
+        return "1. Работает";
+    }
 }

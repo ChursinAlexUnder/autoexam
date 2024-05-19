@@ -16,4 +16,8 @@ public class Task2 extends Task{
                         "лиги.";
             }
     }
+
+    public String answer() {
+        return "2. Работает";
+    }
 }
