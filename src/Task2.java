@@ -20,7 +20,7 @@ public class Task2 extends Task{
 
     public String answer() {
         if(variant==5){
-            return "";
+            return "Рез" + C(5,4);
         }else {
             return "";
         }

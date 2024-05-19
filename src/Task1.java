@@ -52,7 +52,7 @@ public class Task1 extends Task {
                 numerator2 *= i;
             for (int i = variants; i > variants - students; i--)
                 znam2 *= i;
-            return "1. " + "a) " + reduction(numerator, znam) + " b) " + reduction(numerator2, znam2) + ".";
+            return "1. " + "a) " + reduction(numerator, znam) + "; b) " + reduction(numerator2, znam2) + ".";
         }
     }
 }

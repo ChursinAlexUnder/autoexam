@@ -31,6 +31,13 @@ public class Task {
         b /= temp1;
         return a + "/" + b;
     }
-
-
+    public int C(int n, int k) {
+        if (k < 0 || k > n) {
+            throw new IllegalArgumentException("Invalid arguments: n = " + n + ", k = " + k);
+        }
+        if (k == 0 || k == n) {
+            return 1;
+        }
+        return C(n - 1, k - 1) + C(n - 1, k);
+    }
 }
