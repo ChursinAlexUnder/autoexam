@@ -1,6 +1,7 @@
 import com.microsoft.schemas.office.office.CTR;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
+
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.awt.*;
@@ -10,6 +11,12 @@ import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import org.apache.poi.xwpf.usermodel.*;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTP;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTbl;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblPr;
+
 
 public class MyPanel extends JPanel {
 
@@ -128,7 +135,6 @@ public class MyPanel extends JPanel {
             //Если нажата кнопка сгенерировать вараинты заданий к ним и ответы
             if (e.getSource() == button_generator) {
 
-                //заполнение файла вариантами заданий
                 try {
                     XWPFDocument document = new XWPFDocument();
                     XWPFParagraph[] paragraph = new XWPFParagraph[selectedValue];
@@ -159,6 +165,39 @@ public class MyPanel extends JPanel {
                                         FileInputStream imageStream = new FileInputStream(System.getProperty("user.dir") + "/src/" + variant);
                                         run2.addPicture(imageStream, XWPFDocument.PICTURE_TYPE_PNG, "variant", Units.toEMU(140), Units.toEMU(75));
                                         imageStream.close();
+                                    }
+                                    // вставка таблицы
+                                    if (numbertask == 14) {
+                                        // Создание таблицы X
+                                        XWPFTable tableX = document.createTable(2, 5);
+                                        Table tableX1 = new Table(5, numbertask + 1, true, "X");
+                                        for (int row = 0; row < 2; row++) {
+                                            XWPFTableRow tableRow = tableX.getRow(row);
+                                            for (int col = 0; col < 5; col++) {
+                                                XWPFTableCell cell = tableRow.getCell(col);
+                                                cell.setText(tableX1.getTable()[row][col]);
+                                                cell.setWidth("500");
+                                            }
+                                            tableRow.setHeight(130);
+                                        }
+                                        run2.addBreak();
+
+                                        // Добавление пустого параграфа между таблицами
+                                        XWPFParagraph emptyParagraph = document.createParagraph();
+                                        emptyParagraph.createRun().addBreak();
+
+                                        // Создание таблицы Y
+                                        XWPFTable tableY = document.createTable(2, 4);
+                                        Table tableY1 = new Table(4, numbertask + 1, false, "Y");
+                                        for (int row = 0; row < 2; row++) {
+                                            XWPFTableRow tableRow = tableY.getRow(row);
+                                            for (int col = 0; col < 4; col++) {
+                                                XWPFTableCell cell = tableRow.getCell(col);
+                                                cell.setText(tableY1.getTable()[row][col]);
+                                                cell.setWidth("500");
+                                            }
+                                            tableRow.setHeight(130);
+                                        }
                                     }
                                     run2.addBreak();
                                     run2.addBreak();

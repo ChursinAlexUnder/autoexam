@@ -1,5 +1,4 @@
 import java.util.Random;
-import static java.lang.Math.round;
 public class Task {
     Random random = new Random();
     public String fill(){return "";}
@@ -10,5 +9,4 @@ public class Task {
         double randomNumber = min + (max - min) * random.nextDouble();
         return Math.round(randomNumber * znak) / znak;
     }
-
 }

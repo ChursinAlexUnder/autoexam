@@ -1,5 +1,6 @@
 public class Task14 extends Task {
     double brak = randomized(0.01, 0.03, 100.0);
+
     int count = randomize(1, 3) * 100;
     double line =randomized(0.02, 0.05, 100.0);
     public String fill() {
@@ -12,7 +13,7 @@ public class Task14 extends Task {
                     " обрыва нити на одном веретене в течение одной минуты\n" +
                     " равна "+line+". Составить ряд распределения числа обрывов\n" +
                     " нити в течение одной минуты. Найти M(X) этой случайной\n" +
-                    " величины";
+                    " величины.";
         }
     }
 }
