@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Task1 extends Task {
     int variants = randomize(10, 12);
     int students = randomize(7, 9);
@@ -20,6 +18,17 @@ public class Task1 extends Task {
                     "а) варианты 1-й и 2-й достанутся первым " + count1 + " студентам;\n" +
                     "б) первые " + count2 + " вариантов распределятся последовательно.";
             }
+    }
+    public String answer() {
+        int m = 1;
+        for (int i = 2; i < photos2; i++) {
+            m *= photos1 - i;
+        }
+        int znam = 1;
+        for (int i = 0; i < (photos1-photos2); i++) {
+            znam *= photos1 - i;
+        }
+        return m + "/" + znam;
     }
 
 }
