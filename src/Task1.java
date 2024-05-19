@@ -23,26 +23,22 @@ public class Task1 extends Task {
     public String answer() {
         if (variant == 5) {
             // а
-            int mA = 1, mB = 1;
+            int mA = 1, mB;
             for (int i = 2; i < photos2; i++) {
                 mA *= photos1 - i;
             }
             mB = mA;
-            int znamA = 1, znamB = 1;
-            for (int i = 0; i < (photos1 - photos2); i++) {
+            int znamA = 1, znamB;
+            for (int i = 0; i < photos2; i++) {
                 znamA *= photos1 - i;
             }
             znamB = znamA;
-
-            // б
-            int sum = 1, factorial = 1;
+            int sum = 1;
             for (int i = 2; i < photos2; i++) {
-                factorial *= i;
-                sum += factorial;
+                sum += i;
             }
             mB *= sum;
-
-            return "a) " + reduction(mA, znamA);
+            return "1. а) " + reduction(mA, znamA) + "; " + "б) " + reduction(mB, znamB) + ".";
         } else {
             //a)
             int numerator = 2, numerator2 = 2;
@@ -56,7 +52,7 @@ public class Task1 extends Task {
                 numerator2 *= i;
             for (int i = variants; i > variants - students; i--)
                 znam2 *= i;
-            return "1. " + " a) " + reduction(numerator, znam) + " b) " + reduction(numerator2, znam2);
+            return "1. " + "a) " + reduction(numerator, znam) + " b) " + reduction(numerator2, znam2) + ".";
         }
     }
 }
