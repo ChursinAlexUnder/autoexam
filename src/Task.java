@@ -82,7 +82,6 @@ public class Task {
     }
     public int getVariant(){
         return 0;
-
     }
     String[][] getTableX() {return null;}
     String[][] getTableY() {return null;}
