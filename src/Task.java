@@ -76,6 +76,5 @@ public class Task {
     }
     public int getVariant(){
         return 0;
-
     }
 }
