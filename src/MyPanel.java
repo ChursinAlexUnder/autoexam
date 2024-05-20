@@ -285,7 +285,7 @@ public class MyPanel extends JPanel {
                     out_variants.close();
                     document.close();
 
-                    FileOutputStream out_answers = new FileOutputStream("Ответы.docx");
+                    FileOutputStream out_answers = new FileOutputStream( "Ответы.docx");
                     document_ans.write(out_answers);
                     out_answers.close();
                     document_ans.close();
