@@ -1,8 +1,11 @@
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
+
 public class Task11 extends Task {
     int allVeretena = randomize(5, 9) * 100;
     double verObr = randomized(0.002, 0.006, 1000.0);
-    int percent = randomize(2, 4);
-    int count = randomize(2, 5);
+    int percent = randomize(2, 3);
+    int count = randomize(3, 4);
     int variant = randomize(5, 6);
 
     public String fill() {
@@ -20,7 +23,13 @@ public class Task11 extends Task {
         if(variant==5){
             return "";
         }else {
-            return "";
+            int flag; double percent_d = percent*0.01;
+            double x1 = notail((0 - 100 * percent_d) / sqrt(100 * percent_d * (1 - percent_d)));
+            if (x1 < 0) flag = -1;
+            else flag = 1;
+            double x2 = abs(notail((count - 100 * percent_d) / sqrt(100 * percent_d * (1 - percent_d))));
+            double ans = notail(F(x2) - flag*F(abs(x1)));
+            return "11. " + ans;
         }
     }
 }

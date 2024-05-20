@@ -71,4 +71,7 @@ public class Task {
         }
         return sum * h;
     }
+    public int getVariant(){
+        return 0;
+    }
 }

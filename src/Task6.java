@@ -25,13 +25,14 @@ public class Task6 extends Task {
             return "6. " + ans + ".";
         }else {
             int numerator = 1;
-            for (int i = count2; i > count2 - count1; i--)
+            for (int i = count2; i > count2 - count3; i--)
                 numerator *= i;
             int znam = 1;
             for (int i = count1; i > count1 - count3; i--)
                 znam *= i;
             double ans = notail((double) numerator / znam);
-            return "6. " + ans;
+            String str_ans = String.format("%.6f", ans);
+            return "6. " + str_ans;
         }
     }
 }

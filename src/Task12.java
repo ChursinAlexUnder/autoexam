@@ -1,3 +1,6 @@
+import static java.lang.Math.sqrt;
+import static org.apache.poi.sl.draw.geom.GuideIf.Op.sqrt;
+
 public class Task12 extends Task {
     double ver = randomized(0.7, 0.9, 10.0);
     int count = randomize(4, 6);
@@ -21,7 +24,16 @@ public class Task12 extends Task {
         if(variant==5){
             return "";
         }else {
-            return "";
+            double MX=0.0;
+            double MX_2=0.0;
+            for(int i=1;i<=count;i++){
+                MX+= (double) 1 /count*i;
+                MX_2+= (double) 1 /count*i*i;
+            }
+            double DX = notail(MX_2 - MX*MX);
+            MX = notail(MX);
+            double sigma = notail(sqrt(DX));
+            return "12. MX = "+MX+"; DX = "+DX+"; σ(X) = "+sigma;
         }
     }
 }
