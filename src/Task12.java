@@ -44,7 +44,7 @@ public class Task12 extends Task {
             double DX = notail(MX_2 - MX*MX);
             MX = notail(MX);
             double sigma = notail(sqrt(DX));
-            return "12. MX = "+MX+"; DX = "+DX+"; σ(X) = "+sigma;
+            return "12. Ряд распределения смотреть внизу после ответов. MX = "+MX+"; DX = "+DX+"; σ(X) = "+sigma;
         }
     }
     public String[][] answerTable() {
