@@ -72,10 +72,18 @@ public class Task {
         return sum * h;
     }
     public String[][] answerTable() {
-        return new String[0][0];
+        return null;
+    }
+    public String[][] answerTableZ1() {
+        return null;
+    }
+    public String[][] answerTableZ2() {
+        return null;
     }
     public int getVariant(){
         return 0;
 
     }
+    String[][] getTableX() {return null;}
+    String[][] getTableY() {return null;}
 }

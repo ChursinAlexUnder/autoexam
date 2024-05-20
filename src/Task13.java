@@ -18,12 +18,41 @@ public class Task13 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5) {
+            double MX = notail(shoot*ver);
+            double DX = notail(shoot*ver*(1-ver));
+            return "13. Ряд распределения смотреть внизу после ответов. M(X) = " + MX + "; D(X) = " + DX + ".";
         }else {
             double MX = notail(count*signal);
             double DX = notail(count*signal*(1-signal));
-            return "13. MX = "+MX+"; DX = "+DX;
+            return "13. Ряд распределения смотреть внизу после ответов. MX = "+MX+"; DX = "+DX;
+        }
+    }
+    public String[][] answerTable() {
+        if (variant == 5) {
+            String[][] ansTable = new String[2][shoot + 3];
+            ansTable[0][0] = "№";
+            ansTable[1][0] = "13";
+            ansTable[0][1] = "X";
+            ansTable[1][1] = "P";
+            for (int i = 0; i <= shoot; i++)
+                ansTable[0][i+2] = Integer.toString(i);
+            for (int i = 0; i <= shoot; i++) {
+                ansTable[1][i+2] = String.format("%.5f", C(shoot, i) * Math.pow((1 - ver), shoot - i) * Math.pow(ver, i));
+            }
+            return ansTable;
+        } else {
+            String[][] ansTable = new String[2][count + 3];
+            ansTable[0][0] = "№";
+            ansTable[1][0] = "13";
+            ansTable[0][1] = "X";
+            ansTable[1][1] = "P";
+            for (int i = 0; i <= count; i++)
+                ansTable[0][i+2] = Integer.toString(i);
+            for (int i = 0; i <= count; i++) {
+                ansTable[1][i+2] = String.format("%.5f", (notail(C(count, i) * Math.pow((1 - signal), count - i) * Math.pow(signal, i))));
+            }
+            return ansTable;
         }
     }
 }

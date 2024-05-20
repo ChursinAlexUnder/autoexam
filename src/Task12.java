@@ -35,8 +35,8 @@ public class Task12 extends Task {
             double sigmax = Math.sqrt(dx);
             return "12. Ряд распределения смотреть внизу после ответов. M(X) = " + notail(mx) + ", D(X) = " + notail(dx) + ", σ(X) = " + notail(sigmax) + ".";
         }else {
-            double MX=0.0;
-            double MX_2=0.0;
+            double MX = 0.0;
+            double MX_2 = 0.0;
             for(int i=1;i<=count;i++){
                 MX+= (double) 1 /count*i;
                 MX_2+= (double) 1 /count*i*i;

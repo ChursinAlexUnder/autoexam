@@ -21,10 +21,50 @@ public class Task14 extends Task {
 
     public String answer() {
         if (variant == 5) {
-            return "";
+            int mx = (int) (count * brak);
+            return "14. Ряд распределения смотреть внизу после ответов. M(X) = " + mx + ".";
         } else {
             int MX = (int) (1000 * line);
-            return "14. MX = " + MX;
+            return "14. Ряд распределения смотреть внизу после ответов. MX = " + MX;
+        }
+    }
+    public String[][] answerTable() {
+        if (variant == 5) {
+            String[][] ansTable = new String[2][7];
+            ansTable[0][0] = "№";
+            ansTable[1][0] = "14";
+            ansTable[0][1] = "X";
+            ansTable[1][1] = "P";
+            for (int i = 0; i <= 1; i++)
+                ansTable[0][i+2] = Integer.toString(i);
+            ansTable[0][4] = "...";
+            ansTable[1][4] = "...";
+            ansTable[0][5] = "n";
+            ansTable[1][5] = "(" + (int) (count * brak) + "^n)" + "/n! * e^-" + (int) (count * brak);
+            ansTable[0][6] = "...";
+            ansTable[1][6] = "...";
+            for (int i = 0; i <= 1; i++) {
+                ansTable[1][i+2] = "(" + (int) (count * brak) + "^" + i + ")" + "/" + i + "! * e^-" + (int) (count * brak);
+            }
+            return ansTable;
+        } else {
+            String[][] ansTable = new String[2][7];
+            ansTable[0][0] = "№";
+            ansTable[1][0] = "14";
+            ansTable[0][1] = "X";
+            ansTable[1][1] = "P";
+            for (int i = 0; i <= 1; i++)
+                ansTable[0][i+2] = Integer.toString(i);
+            ansTable[0][4] = "...";
+            ansTable[1][4] = "...";
+            ansTable[0][5] = "n";
+            ansTable[1][5] = "(" + (int) (1000 * line) + "^n)" + "/n! * e^-" + (int) (1000 * line);
+            ansTable[0][6] = "...";
+            ansTable[1][6] = "...";
+            for (int i = 0; i <= 1; i++) {
+                ansTable[1][i+2] = "(" + (int) (1000 * line) + "^" + i + ")" + "/" + i + "! * e^-" + (int) (1000 * line);
+            }
+            return ansTable;
         }
     }
 }

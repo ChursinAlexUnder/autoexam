@@ -189,17 +189,15 @@ public class MyPanel extends JPanel {
                                     if (numbertask == 14) {
                                         // Создание таблицы X
                                         XWPFTable tableX = document.createTable(2, 5);
-                                        Table tableX1 = new Table(5, numbertask + 1, true, "X");
                                         for (int row = 0; row < 2; row++) {
                                             XWPFTableRow tableRow = tableX.getRow(row);
                                             for (int col = 0; col < 5; col++) {
                                                 XWPFTableCell cell = tableRow.getCell(col);
-                                                cell.setText(tableX1.getTable()[row][col]);
-                                                cell.setWidth("500");
+                                                cell.setText(task[numbertask].getTableX()[row][col]);
+                                                cell.setWidth("600");
                                             }
                                             tableRow.setHeight(130);
                                         }
-                                        run2.addBreak();
 
                                         // Добавление пустого параграфа между таблицами
                                         XWPFParagraph emptyParagraph = document.createParagraph();
@@ -207,19 +205,46 @@ public class MyPanel extends JPanel {
 
                                         // Создание таблицы Y
                                         XWPFTable tableY = document.createTable(2, 4);
-                                        Table tableY1 = new Table(4, numbertask + 1, false, "Y");
                                         for (int row = 0; row < 2; row++) {
                                             XWPFTableRow tableRow = tableY.getRow(row);
                                             for (int col = 0; col < 4; col++) {
                                                 XWPFTableCell cell = tableRow.getCell(col);
-                                                cell.setText(tableY1.getTable()[row][col]);
-                                                cell.setWidth("500");
+                                                cell.setText(task[numbertask].getTableY()[row][col]);
+                                                cell.setWidth("800");
+                                            }
+                                            tableRow.setHeight(130);
+                                        }
+
+                                        // Создание таблицы Z1
+                                        XWPFTable tableZ1 = document_ans.createTable(2, 8);
+                                        for (int row = 0; row < 2; row++) {
+                                            XWPFTableRow tableRow = tableZ1.getRow(row);
+                                            for (int col = 0; col < 8; col++) {
+                                                XWPFTableCell cell = tableRow.getCell(col);
+                                                cell.setText(task[numbertask].answerTableZ1()[row][col]);
+                                                cell.setWidth("900");
+                                            }
+                                            tableRow.setHeight(130);
+                                        }
+
+                                        // Добавление пустого параграфа между таблицами
+                                        XWPFParagraph emptyParagraph1 = document_ans.createParagraph();
+                                        emptyParagraph1.createRun().addBreak();
+
+                                        // Создание таблицы Z2
+                                        XWPFTable tableZ2 = document_ans.createTable(2, 8);
+                                        for (int row = 0; row < 2; row++) {
+                                            XWPFTableRow tableRow = tableZ2.getRow(row);
+                                            for (int col = 0; col < 8; col++) {
+                                                XWPFTableCell cell = tableRow.getCell(col);
+                                                cell.setText(task[numbertask].answerTableZ2()[row][col]);
+                                                cell.setWidth("900");
                                             }
                                             tableRow.setHeight(130);
                                         }
                                     }
 
-                                    if (numbertask == 11) {
+                                    if (numbertask == 11 || numbertask == 12 || numbertask == 13) {
                                         int cols = task[numbertask].answerTable()[0].length;
                                         XWPFTable tableX = document_ans.createTable(2, cols);
                                         for (int row = 0; row < 2; row++) {
@@ -227,11 +252,12 @@ public class MyPanel extends JPanel {
                                             for (int col = 0; col < cols; col++) {
                                                 XWPFTableCell cell = tableRow.getCell(col);
                                                 cell.setText(task[numbertask].answerTable()[row][col]);
-                                                cell.setWidth("700");
+                                                if (numbertask == 13)
+                                                    cell.setWidth("1500");
+                                                else cell.setWidth("1000");
                                             }
                                             tableRow.setHeight(130);
                                         }
-                                        run2.addBreak();
 
                                         // Добавление пустого параграфа между таблицами
                                         XWPFParagraph emptyParagraph = document_ans.createParagraph();
