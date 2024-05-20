@@ -177,7 +177,7 @@ public class MyPanel extends JPanel {
                                         run2.addBreak();
                                         int numbertask_img = numbertask + 1;
                                         String variant = Integer.toString(numbertask_img);
-                                        if (task[i].randomize(5, 6) == 5)
+                                        if (task[i].getVariant() == 5)
                                             variant += "_5.png";
                                         else variant += "_6.png";
                                         FileInputStream imageStream = new FileInputStream(System.getProperty("user.dir") + "/src/" + variant);

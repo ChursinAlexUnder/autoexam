@@ -27,6 +27,9 @@ public class Task18 extends Task {
                     "5) найти М(Х), D(X), σ(X).";
         }
     }
+    public int getVariant(){
+        return variant;
+    }
     public String answer() {
         if(variant==5){
             return "";

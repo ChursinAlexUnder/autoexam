@@ -24,6 +24,9 @@ public class Task16 extends Task {
                     "4) найти Р(a < X < b) для данных a = "+a2+", b = "+b2+".";
         }
     }
+    public int getVariant(){
+        return variant;
+    }
     public String answer() {
         if(variant==5){
             return "";

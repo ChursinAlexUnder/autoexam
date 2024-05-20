@@ -9,6 +9,9 @@ public class Task17 extends Task {
                     "3) построить графики f(x) и F(x);\n" +
                     "4) найти асимметрию и эксцесс X.";
     }
+    public int getVariant(){
+        return variant;
+    }
     public String answer() {
         if(variant==5){
             return "";

@@ -2,6 +2,7 @@ public class Task13 extends Task {
     int shoot = randomize(3, 5);
     double ver = randomized(0.2, 0.4, 10.0);
     double signal = randomized(0.6, 0.8,10.0);
+    int count = randomize(4, 6);
     int variant = randomize(5, 6);
 
     public String fill() {
@@ -11,7 +12,7 @@ public class Task13 extends Task {
                     " величины.\n";
         } else {
             return "13. Вероятность приема сигнала равна "+signal+". Сигнал передаётся\n" +
-                    " пять раз. Составить ряд распределения числа передач, \n" +
+                    count+" раз. Составить ряд распределения числа передач, \n" +
                     " в которых сигнал будет принят. Найти M(X) и D(X)\n" +
                     "этой случайной величины.";
         }
@@ -20,7 +21,9 @@ public class Task13 extends Task {
         if(variant==5){
             return "";
         }else {
-            return "";
+            double MX = notail(count*signal);
+            double DX = notail(count*signal*(1-signal));
+            return "13. MX = "+MX+"; DX = "+DX;
         }
     }
 }
