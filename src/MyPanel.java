@@ -218,6 +218,25 @@ public class MyPanel extends JPanel {
                                             tableRow.setHeight(130);
                                         }
                                     }
+
+                                    if (numbertask == 11) {
+                                        int cols = task[numbertask].answerTable()[0].length;
+                                        XWPFTable tableX = document_ans.createTable(2, cols);
+                                        for (int row = 0; row < 2; row++) {
+                                            XWPFTableRow tableRow = tableX.getRow(row);
+                                            for (int col = 0; col < cols; col++) {
+                                                XWPFTableCell cell = tableRow.getCell(col);
+                                                cell.setText(task[numbertask].answerTable()[row][col]);
+                                                cell.setWidth("700");
+                                            }
+                                            tableRow.setHeight(130);
+                                        }
+                                        run2.addBreak();
+
+                                        // Добавление пустого параграфа между таблицами
+                                        XWPFParagraph emptyParagraph = document_ans.createParagraph();
+                                        emptyParagraph.createRun().addBreak();
+                                    }
                                     run2_ans.addBreak();
                                     run2_ans.addBreak();
                                     run2.addBreak();

@@ -1,6 +1,6 @@
 public class Task10 extends Task {
-    int allTest = randomize(4, 6) * 100, kol = randomize(20, 30) * 10, kol1 = randomize(10, 20) * 10, kol2 = randomize(25, 30) * 10;
-    double ver = randomized(0.3, 0.6, 10.0);
+    int allTest = randomize(5, 6) * 100, kol = randomize(15, 17) * 10, kol1 = randomize(23, 24) * 10, kol2 = randomize(17, 18) * 10;
+    double ver = randomized(0.3, 0.4, 10.0);
     double boy = randomized(0.510, 0.535, 1000.0);
     int[] array = {60,70,80,90};
     int count = array[randomize(0,3)];
@@ -20,8 +20,26 @@ public class Task10 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            double allTest1 = allTest, kol0 = kol, kol11 = kol1, kol22 = kol2;
+            double tmp = Math.sqrt(allTest1 * ver * (1 - ver));
+            double x = (kol0 - allTest1 * ver) / tmp;
+            double fx = f(x);
+            double ans1 = fx / tmp;
+            double flag1, flag2;
+            double x1 = (kol22 - allTest1 * ver) / tmp, x2 = (kol11 - allTest1 * ver) / tmp;
+            if (x1 < 0)
+                flag1 = -1;
+            else flag1 = 1;
+            if (x2 < 0)
+                flag2 = -1;
+            else flag2 = 1;
+            x1 = Math.abs(x1);
+            x2 = Math.abs(x2);
+            double Fx1 = F(x1) * flag1, Fx2 = F(x2) * flag2;
+            double ans2 = notail(Fx2 - Fx1);
+            String str_ans1 = String.format("%.15f", ans1), str_ans2 = String.format("%.5f", ans2);
+            return "10. а) " + str_ans1 + "; б) " + str_ans2 + ".";
         }else {
             return "10. "+f(0.269)+" "+F(1.43);
         }

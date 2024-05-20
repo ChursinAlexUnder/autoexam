@@ -17,8 +17,13 @@ public class Task11 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            double allVeretena1 = allVeretena;
+            double tmp = Math.sqrt(allVeretena1 * verObr * (1 - verObr));
+            double x = Math.abs((3 - allVeretena1 * verObr) / tmp);
+            double fx = f(x);
+            double ans = notail(fx / tmp);
+            return "11. " + ans + ".";
         }else {
             return "";
         }

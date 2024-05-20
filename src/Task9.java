@@ -1,7 +1,7 @@
 import static java.lang.Math.pow;
 
 public class Task9 extends Task {
-    double ver = randomized(0.01, 0.05, 100.0);
+    double ver = randomized(0.01, 0.09, 100.0);
     int lights = randomize(4, 6);
     double p = randomized(0.01, 0.03, 100.0);
     int count1 = randomize(2, 3);
@@ -21,8 +21,10 @@ public class Task9 extends Task {
 
     public String answer() {
         if(variant == 5){
-            
-            return "";
+            double k0 = Math.pow((1 - ver), 8);
+            double k1 = 8 * ver * Math.pow((1 - ver), 7);
+            double k2 = 28 * Math.pow(ver, 2) * Math.pow((1 - ver), 6);
+            return "9. " + notail(k0 + k1 + k2) + ".";
         }else {
             double ans = 0;
             for (int i = count1; i <= lights; i++)

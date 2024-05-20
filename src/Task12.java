@@ -1,5 +1,5 @@
 public class Task12 extends Task {
-    double ver = randomized(0.7, 0.9, 10.0);
+    double ver = randomized(0.6, 0.9, 10.0);
     int count = randomize(4, 6);
     int variant = randomize(5, 6);
 
@@ -18,10 +18,53 @@ public class Task12 extends Task {
         }
     }
     public String answer() {
-        if(variant==5){
-            return "";
+        if(variant == 5){
+            String[][] ansTable = answerTable();
+            double mx = 0;
+            for (int i = 2; i <= 6; i++) {
+                mx += Double.parseDouble(ansTable[0][i]) * Double.parseDouble(ansTable[1][i]);
+            }
+            double mx2 = 0;
+            for (int i = 2; i <= 6; i++) {
+                mx2 += Math.pow(Double.parseDouble(ansTable[0][i]), 2) * Double.parseDouble(ansTable[1][i]);
+            }
+            double dx = mx2 - Math.pow(mx, 2);
+            double sigmax = Math.sqrt(dx);
+            return "12. Ряд распределения смотреть внизу после ответов. M(X) = " + notail(mx) + ", D(X) = " + notail(dx) + ", σ(X) = " + notail(sigmax) + ".";
         }else {
             return "";
+        }
+    }
+    public String[][] answerTable() {
+        if (variant == 5) {
+            String[][] ansTable = new String[2][7];
+            ansTable[0][0] = "№";
+            ansTable[1][0] = "12";
+            ansTable[0][1] = "X";
+            ansTable[1][1] = "P";
+            for (int i = 1; i <= 5; i++)
+                ansTable[0][i+1] = Integer.toString(i);
+            for (int i = 0; i <= 4; i++) {
+                if (i == 4) {
+                    ansTable[1][i+2] = Double.toString(notail(Math.pow(ver, i)));
+                } else {
+                    ansTable[1][i+2] = Double.toString(notail((1 - ver) * Math.pow(ver, i)));
+                }
+            }
+            return ansTable;
+        } else {
+            String[][] ansTable = new String[2][2 + count];
+            ansTable[0][0] = "№";
+            ansTable[1][0] = "12";
+            ansTable[0][1] = "X";
+            ansTable[1][1] = "P";
+            for (int i = 1; i <= count; i++)
+                ansTable[0][i+1] = Integer.toString(i);
+            double count1 = count;
+            for (int i = 0; i <= count - 1; i++) {
+                ansTable[1][i+2] = Double.toString(notail((1 / count1)));
+            }
+            return ansTable;
         }
     }
 }

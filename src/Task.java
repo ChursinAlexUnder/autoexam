@@ -71,4 +71,8 @@ public class Task {
         }
         return sum * h;
     }
+
+    public String[][] answerTable() {
+        return new String[0][0];
+    }
 }
