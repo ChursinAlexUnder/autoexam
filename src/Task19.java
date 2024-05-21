@@ -22,9 +22,10 @@ public class Task19 extends Task {
 
     public String answer() {
         if (variant == 5) {
-            return "";
+            double delta = 3 * sigma2;
+            String ans = notail(m2 - delta) + " < X < " + notail(m2 + delta);
+            return "19. " + ans + ".";
         } else {
-            double[] arr = new double[100];
             p_long /= 2;
             double d = 0.0;
             for (double i = 0.0; i < 10.0; i += 0.01)

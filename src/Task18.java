@@ -32,7 +32,8 @@ public class Task18 extends Task {
 
     public String answer() {
         if (variant == 5) {
-            return "";
+            double p = notail(1 - Math.pow((b1-2), 2)/8 - (1 - Math.pow((a1-2), 2)/8));
+            return "18. 1) выполняется при нормализующем множителе = 1; 2) F(x) = {0, при x ⩽ -2; ((x+2)^2)/8, при -2 < x ⩽ 0; 1 - ((x-2)^2)/8, при 0 < x ⩽ 2; 1, при x > 2}; 3) P = " + p + "; 4) M(X) = 0, D(X) = 0.67; σ(Х) = 0.82.";
         } else {
             String Fx = "{0, при x ⩽ -1; x/2, при -1 < x ⩽ 0; x/2 - x^2/8, при 0 < x ⩽ 2; 1, при x > 2}";
             double P = notail((0.5 * b2 - 0.125 * b2 * b2 - 0.5 * a1));

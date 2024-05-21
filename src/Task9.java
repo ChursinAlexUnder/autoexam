@@ -30,7 +30,7 @@ public class Task9 extends Task {
             for (int i = count1; i <= lights; i++)
                 ans += C(lights, i) * pow(p, i) * pow(1 - p, lights - i);
             ans = notail(ans);
-            String str_ans = String.format("%.6f", ans);
+            String str_ans = String.format("%.8f", ans);
             return "9. " + str_ans;
         }
     }

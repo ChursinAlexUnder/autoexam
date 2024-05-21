@@ -22,7 +22,14 @@ public class Task21 extends Task {
 
     public String answer() {
         if (variant == 5) {
-            return "";
+            double x1 = (double) (t1 - m) / sigma2;
+            double x2 = (double) (t2 - m) / sigma2;
+            int flag1 = 1, flag2 = 1;
+            if (x1 < 0) flag1 = -1;
+            if (x2 < 0) flag2 = -1;
+            double Fx1 = F(abs(x1)), Fx2 = F(abs(x2));
+            double ans = notail(flag2 * Fx2 - flag1 * Fx1);
+            return "21. " + ans + ".";
         } else {
             double x2 = (double) (vagon - mat) / sigma1;
             double x1 = (double) mat / sigma1;

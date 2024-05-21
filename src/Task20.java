@@ -23,7 +23,10 @@ public class Task20 extends Task {
 
     public String answer() {
         if (variant == 5) {
-            return "";
+            String ans1 = String.format("%.6f", (0.00042 * Math.exp(-0.00042 * pa)));
+            String ans2 = String.format("%.7f", (0.00042 * Math.exp(-0.00042 * pb)));
+            String ans3 = String.format("%.8f", (0.00042 * Math.exp(-0.00042 * pc)));
+            return "20. а) " + ans1 + "; б) " + ans2 + "; в) " + ans3 + ".";
         } else {
             double ans = notail(sqrt((double) 1 / A));
             return "20. a) A = ± " + ans + "; б) A = " + ans;
