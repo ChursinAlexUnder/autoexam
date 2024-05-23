@@ -22,10 +22,10 @@ public class Task14 extends Task {
     public String answer() {
         if (variant == 5) {
             int mx = (int) (count * brak);
-            return "14. Ряд распределения смотреть внизу после ответов. M(X) = " + mx + ".";
+            return "14. M(X) = " + mx + ".";
         } else {
             int MX = (int) (1000 * line);
-            return "14. Ряд распределения смотреть внизу после ответов. MX = " + MX;
+            return "14. MX = " + MX;
         }
     }
     public String[][] answerTable() {

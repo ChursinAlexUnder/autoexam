@@ -33,7 +33,7 @@ public class Task12 extends Task {
             }
             double dx = mx2 - Math.pow(mx, 2);
             double sigmax = Math.sqrt(dx);
-            return "12. Ряд распределения смотреть внизу после ответов. M(X) = " + notail(mx) + ", D(X) = " + notail(dx) + ", σ(X) = " + notail(sigmax) + ".";
+            return "12. M(X) = " + notail(mx) + ", D(X) = " + notail(dx) + ", σ(X) = " + notail(sigmax) + ".";
         }else {
             double MX = 0.0;
             double MX_2 = 0.0;
@@ -44,7 +44,7 @@ public class Task12 extends Task {
             double DX = notail(MX_2 - MX*MX);
             MX = notail(MX);
             double sigma = notail(sqrt(DX));
-            return "12. Ряд распределения смотреть внизу после ответов. MX = "+MX+"; DX = "+DX+"; σ(X) = "+sigma;
+            return "12. MX = "+MX+"; DX = "+DX+"; σ(X) = "+sigma;
         }
     }
     public String[][] answerTable() {

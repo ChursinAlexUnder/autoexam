@@ -21,11 +21,11 @@ public class Task13 extends Task {
         if(variant == 5) {
             double MX = notail(shoot*ver);
             double DX = notail(shoot*ver*(1-ver));
-            return "13. Ряд распределения смотреть внизу после ответов. M(X) = " + MX + "; D(X) = " + DX + ".";
+            return "13. M(X) = " + MX + "; D(X) = " + DX + ".";
         }else {
             double MX = notail(count*signal);
             double DX = notail(count*signal*(1-signal));
-            return "13. Ряд распределения смотреть внизу после ответов. MX = "+MX+"; DX = "+DX;
+            return "13. MX = "+MX+"; DX = "+DX;
         }
     }
     public String[][] answerTable() {

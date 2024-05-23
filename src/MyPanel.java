@@ -132,23 +132,19 @@ public class MyPanel extends JPanel {
                 }
             }
 
-            //Если нажата кнопка сгенерировать вараинты заданий к ним и ответы
+            // Если нажата кнопка сгенерировать варианты заданий к ним и ответы
             if (e.getSource() == button_generator) {
-
                 try {
                     XWPFDocument document = new XWPFDocument();
                     XWPFDocument document_ans = new XWPFDocument();
                     XWPFParagraph[] paragraph = new XWPFParagraph[selectedValue];
                     XWPFParagraph[] paragraph_ans = new XWPFParagraph[selectedValue];
-                    for (int i = 0; i < selectedValue; i++) {
 
+                    for (int i = 0; i < selectedValue; i++) {
                         paragraph[i] = document.createParagraph();
                         XWPFRun run1 = paragraph[i].createRun();
-                        XWPFRun run2 = paragraph[i].createRun();
-
                         paragraph_ans[i] = document_ans.createParagraph();
                         XWPFRun run1_ans = paragraph_ans[i].createRun();
-                        XWPFRun run2_ans = paragraph_ans[i].createRun();
 
                         Task[] task = new Task[]{new Task1(), new Task2(), new Task3(), new Task4(), new Task5(),
                                 new Task6(), new Task7(), new Task8(), new Task9(), new Task10(), new Task11(),
@@ -166,9 +162,11 @@ public class MyPanel extends JPanel {
                         run1_ans.setTextPosition(50);
                         run1_ans.addBreak();
 
-                        for (int k = 0; k < 3; k++)
+                        for (int k = 0; k < 3; k++) {
                             for (int j = 0; j < 7; j++) {
                                 if (checkboxes[k][j].isSelected()) {
+                                    XWPFRun run2 = paragraph[i].createRun();
+                                    XWPFRun run2_ans = paragraph_ans[i].createRun();
 
                                     run2.setText(task[numbertask].fill());
                                     run2_ans.setText(task[numbertask].answer());
@@ -185,7 +183,7 @@ public class MyPanel extends JPanel {
                                         imageStream.close();
                                     }
 
-                                    // вставка таблицы
+                                    // Вставка таблицы
                                     if (numbertask == 14) {
                                         // Создание таблицы X
                                         XWPFTable tableX = document.createTable(2, 5);
@@ -200,8 +198,7 @@ public class MyPanel extends JPanel {
                                         }
 
                                         // Добавление пустого параграфа между таблицами
-                                        XWPFParagraph emptyParagraph = document.createParagraph();
-                                        emptyParagraph.createRun().addBreak();
+                                        paragraph[i] = document.createParagraph();
 
                                         // Создание таблицы Y
                                         XWPFTable tableY = document.createTable(2, 4);
@@ -214,6 +211,9 @@ public class MyPanel extends JPanel {
                                             }
                                             tableRow.setHeight(130);
                                         }
+
+                                        // Добавление пустого параграфа между таблицами
+                                        paragraph[i] = document.createParagraph();
 
                                         // Создание таблицы Z1
                                         XWPFTable tableZ1 = document_ans.createTable(2, 8);
@@ -228,8 +228,7 @@ public class MyPanel extends JPanel {
                                         }
 
                                         // Добавление пустого параграфа между таблицами
-                                        XWPFParagraph emptyParagraph1 = document_ans.createParagraph();
-                                        emptyParagraph1.createRun().addBreak();
+                                        paragraph_ans[i] = document_ans.createParagraph();
 
                                         // Создание таблицы Z2
                                         XWPFTable tableZ2 = document_ans.createTable(2, 8);
@@ -242,6 +241,10 @@ public class MyPanel extends JPanel {
                                             }
                                             tableRow.setHeight(130);
                                         }
+
+                                        // Добавление пустого параграфа между таблицами
+                                        paragraph_ans[i] = document_ans.createParagraph();
+
                                     }
 
                                     if (numbertask == 11 || numbertask == 12 || numbertask == 13) {
@@ -260,9 +263,9 @@ public class MyPanel extends JPanel {
                                         }
 
                                         // Добавление пустого параграфа между таблицами
-                                        XWPFParagraph emptyParagraph = document_ans.createParagraph();
-                                        emptyParagraph.createRun().addBreak();
+                                        paragraph_ans[i] = document_ans.createParagraph();
                                     }
+
                                     run2_ans.addBreak();
                                     run2_ans.addBreak();
                                     run2.addBreak();
@@ -270,6 +273,8 @@ public class MyPanel extends JPanel {
                                 }
                                 numbertask++;
                             }
+                        }
+
                         XWPFParagraph paragraphBreak = document.createParagraph();
                         XWPFRun runBreak = paragraphBreak.createRun();
                         runBreak.addBreak(BreakType.PAGE);
@@ -279,13 +284,12 @@ public class MyPanel extends JPanel {
                         runBreak_ans.addBreak(BreakType.PAGE);
                     }
 
-
                     FileOutputStream out_variants = new FileOutputStream("Варианты.docx");
                     document.write(out_variants);
                     out_variants.close();
                     document.close();
 
-                    FileOutputStream out_answers = new FileOutputStream( "Ответы.docx");
+                    FileOutputStream out_answers = new FileOutputStream("Ответы.docx");
                     document_ans.write(out_answers);
                     out_answers.close();
                     document_ans.close();
@@ -295,8 +299,9 @@ public class MyPanel extends JPanel {
                 } catch (InvalidFormatException ex) {
                     throw new RuntimeException(ex);
                 }
-                //System.exit(0);
+                System.exit(0);
             }
+
         }
     }
 }
