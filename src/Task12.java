@@ -1,6 +1,4 @@
 import static java.lang.Math.sqrt;
-import static org.apache.poi.sl.draw.geom.GuideIf.Op.sqrt;
-
 public class Task12 extends Task {
     double ver = randomized(0.6, 0.9, 10.0);
     int count = randomize(4, 6);
@@ -11,7 +9,7 @@ public class Task12 extends Task {
             return  "12. Производятся последовательные испытания надежности пяти приборов. Каждый\n" +
                     " следующий прибор испытывается только в том случае, если предыдущий оказался надежным.\n" +
                     " Составить ряд распределения числа испытаний приборов, если вероятность выдержать испытание\n" +
-                    " для каждого прибора равна " + ver + ". Найти М(Х), D(X), σ (X) \n" +
+                    " для каждого прибора равна " + formatNum(ver) + ". Найти М(Х), D(X), σ (X) \n" +
                     "этой случайной величины.\n";
         } else {
             return "12. Имеется "+count+" ключей, из которых только один подходит\n" +
@@ -33,7 +31,7 @@ public class Task12 extends Task {
             }
             double dx = mx2 - Math.pow(mx, 2);
             double sigmax = Math.sqrt(dx);
-            return "12. M(X) = " + notail(mx) + ", D(X) = " + notail(dx) + ", σ(X) = " + notail(sigmax) + ".";
+            return "12. M(X) = " + formatNum(notail(mx)) + ", D(X) = " + formatNum(notail(dx)) + ", σ(X) = " + formatNum(notail(sigmax)) + ".";
         }else {
             double MX = 0.0;
             double MX_2 = 0.0;
@@ -44,7 +42,7 @@ public class Task12 extends Task {
             double DX = notail(MX_2 - MX*MX);
             MX = notail(MX);
             double sigma = notail(sqrt(DX));
-            return "12. MX = "+MX+"; DX = "+DX+"; σ(X) = "+sigma;
+            return "12. MX = "+formatNum(MX)+"; DX = "+formatNum(DX)+"; σ(X) = "+formatNum(sigma);
         }
     }
     public String[][] answerTable() {

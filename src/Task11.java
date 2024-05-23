@@ -11,7 +11,7 @@ public class Task11 extends Task {
     public String fill() {
         if (variant == 5) {
             return "11. Прядильщица обслуживает " + allVeretena + " веретен. Вероятность обрыва нити на одном веретене в течение\n" +
-                    " часа равна " + verObr + ". Какова вероятность того, что в течение часа нить оборвется на трех веретенах?\n";
+                    " часа равна " + formatNum(verObr) + ". Какова вероятность того, что в течение часа нить оборвется на трех веретенах?\n";
         } else {
             return "11. Некачественные сверла составляют " + percent + "% всей продукции\n" +
                     " фабрики. Изготовленные сверла упаковываются в\n" +
@@ -26,7 +26,7 @@ public class Task11 extends Task {
             double x = Math.abs((3 - allVeretena1 * verObr) / tmp);
             double fx = f(x);
             double ans = notail(fx / tmp);
-            return "11. " + ans + ".";
+            return "11. " + formatNum(ans) + ".";
         }else {
             int flag; double percent_d = percent*0.01;
             double x1 = notail((0 - 100 * percent_d) / sqrt(100 * percent_d * (1 - percent_d)));
@@ -34,7 +34,7 @@ public class Task11 extends Task {
             else flag = 1;
             double x2 = abs(notail((count - 100 * percent_d) / sqrt(100 * percent_d * (1 - percent_d))));
             double ans = notail(F(x2) - flag*F(abs(x1)));
-            return "11. " + ans;
+            return "11. " + formatNum(ans);
         }
     }
 }

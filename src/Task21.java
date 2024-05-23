@@ -29,7 +29,7 @@ public class Task21 extends Task {
             if (x2 < 0) flag2 = -1;
             double Fx1 = F(abs(x1)), Fx2 = F(abs(x2));
             double ans = notail(flag2 * Fx2 - flag1 * Fx1);
-            return "21. " + ans + ".";
+            return "21. " + formatNum(ans) + ".";
         } else {
             double x2 = (double) (vagon - mat) / sigma1;
             double x1 = (double) mat / sigma1;
@@ -37,7 +37,7 @@ public class Task21 extends Task {
             if (x2 > 0) flag = 1;
             else flag = -1;
             double P = notail(F(x1) + flag * F(abs(x2)));
-            return "21. "+P;
+            return "21. "+formatNum(P);
         }
     }
 }

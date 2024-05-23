@@ -9,11 +9,11 @@ public class Task9 extends Task {
 
     public String fill() {
         if (variant == 5) {
-            return "9. Вероятность отказа локомотива на линии за время полного оборота составляет " + ver + ". Найти\n" +
+            return "9. Вероятность отказа локомотива на линии за время полного оборота составляет " + formatNum(ver) + ". Найти\n" +
                     " вероятность того, что в восьми поездах произойдет не более двух отказов локомотива на линии.\n";
         } else {
             return "9. В поезде " + lights + " электрических лампочек. Каждая из\n" +
-                    "них перегорает в течение года с вероятностью " + p + ". Найти\n" +
+                    "них перегорает в течение года с вероятностью " + formatNum(p) + ". Найти\n" +
                     "вероятность того, что в течение года перегорит не менее\n" +
                     count1 + " лампочек.\n";
         }
@@ -24,14 +24,14 @@ public class Task9 extends Task {
             double k0 = Math.pow((1 - ver), 8);
             double k1 = 8 * ver * Math.pow((1 - ver), 7);
             double k2 = 28 * Math.pow(ver, 2) * Math.pow((1 - ver), 6);
-            return "9. " + notail(k0 + k1 + k2) + ".";
+            return "9. " + formatNum(notail(k0 + k1 + k2)) + ".";
         } else {
             double ans = 0;
             for (int i = count1; i <= lights; i++)
                 ans += C(lights, i) * pow(p, i) * pow(1 - p, lights - i);
             ans = notail(ans);
-            String str_ans = String.format("%.8f", ans);
-            return "9. " + str_ans;
+
+            return "9. " + formatNum(ans);
         }
     }
 }

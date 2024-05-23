@@ -29,7 +29,7 @@ public class Task20 extends Task {
             return "20. а) " + ans1 + "; б) " + ans2 + "; в) " + ans3 + ".";
         } else {
             double ans = notail(sqrt((double) 1 / A));
-            return "20. a) A = ± " + ans + "; б) A = " + ans;
+            return "20. a) A = ± " + formatNum(ans) + "; б) A = " + formatNum(ans);
         }
     }
 }

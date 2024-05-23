@@ -1,9 +1,7 @@
-import org.apache.commons.math3.analysis.function.Sqrt;
-
 import java.util.Random;
-import java.util.function.Function;
-
 import static java.lang.Math.*;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class Task {
     Random random = new Random();
@@ -85,4 +83,16 @@ public class Task {
     }
     String[][] getTableX() {return null;}
     String[][] getTableY() {return null;}
+    public String formatNum(double number) {
+        // Задаем символы для десятичного разделителя и разделителя групп
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator(',');
+        symbols.setGroupingSeparator(' ');
+
+        // Задаем шаблон для форматирования
+        DecimalFormat decimalFormat = new DecimalFormat("#.##################", symbols);
+
+        // Форматируем число
+        return decimalFormat.format(number);
+    }
 }

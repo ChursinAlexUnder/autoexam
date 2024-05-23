@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 
 public class MyPanel extends JPanel {
@@ -112,6 +114,19 @@ public class MyPanel extends JPanel {
         add(select_quantityPanel, BorderLayout.NORTH);
     }
 
+    public String formatNum(double number) {
+        // Задаем символы для десятичного разделителя и разделителя групп
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator(',');
+        symbols.setGroupingSeparator(' ');
+
+        // Задаем шаблон для форматирования
+        DecimalFormat decimalFormat = new DecimalFormat("#.##################", symbols);
+
+        // Форматируем число
+        return decimalFormat.format(number);
+    }
+
     class MyListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
@@ -185,7 +200,11 @@ public class MyPanel extends JPanel {
                                             XWPFTableRow tableRow = tableX.getRow(row);
                                             for (int col = 0; col < 5; col++) {
                                                 XWPFTableCell cell = tableRow.getCell(col);
-                                                cell.setText(task[numbertask].getTableX()[row][col]);
+                                                if (col >= 2 && col != 3 && row == 1) {
+                                                    cell.setText(formatNum(Double.parseDouble(task[numbertask].getTableX()[row][col])));
+                                                } else {
+                                                    cell.setText(task[numbertask].getTableX()[row][col]);
+                                                }
                                                 cell.setWidth("600");
                                             }
                                             tableRow.setHeight(130);
@@ -200,7 +219,11 @@ public class MyPanel extends JPanel {
                                             XWPFTableRow tableRow = tableY.getRow(row);
                                             for (int col = 0; col < 4; col++) {
                                                 XWPFTableCell cell = tableRow.getCell(col);
-                                                cell.setText(task[numbertask].getTableY()[row][col]);
+                                                if (col >= 2 && row == 1) {
+                                                    cell.setText(formatNum(Double.parseDouble(task[numbertask].getTableY()[row][col])));
+                                                } else {
+                                                    cell.setText(task[numbertask].getTableX()[row][col]);
+                                                }
                                                 cell.setWidth("800");
                                             }
                                             tableRow.setHeight(130);
@@ -248,7 +271,11 @@ public class MyPanel extends JPanel {
                                             XWPFTableRow tableRow = tableX.getRow(row);
                                             for (int col = 0; col < cols; col++) {
                                                 XWPFTableCell cell = tableRow.getCell(col);
-                                                cell.setText(task[numbertask].answerTable()[row][col]);
+                                                if (numbertask == 11 && col >= 2 && row == 1) {
+                                                    cell.setText(formatNum(Double.parseDouble(task[numbertask].answerTable()[row][col])));
+                                                } else {
+                                                    cell.setText(task[numbertask].answerTable()[row][col]);
+                                                }
                                                 if (numbertask == 13)
                                                     cell.setWidth("1500");
                                                 else cell.setWidth("1000");

@@ -11,12 +11,12 @@ public class Task10 extends Task {
 
     public String fill() {
         if (variant == 5) {
-            return "10. В каждом из " + allTest + " независимых испытаний событие А происходит с постоянной вероятностью " + ver + ".\n" +
+            return "10. В каждом из " + allTest + " независимых испытаний событие А происходит с постоянной вероятностью " + formatNum(ver) + ".\n" +
                     " Найти вероятность того, что событие А наступит:\n" +
                     "а) точно " + kol + " раз;\n" +
                     "б) менее чем " + kol1 + " и более чем " + kol2 + " раз.\n";
         } else {
-            return "10. Вероятность рождения мальчика равна " + boy + ". Чему\n" +
+            return "10. Вероятность рождения мальчика равна " + formatNum(boy) + ". Чему\n" +
                     "равна вероятность того, что среди " + count + " новорожденных:\n" +
                     "а) мальчиков ровно половина;\n" +
                     "б) не менее половины мальчиков?";
@@ -42,8 +42,7 @@ public class Task10 extends Task {
             x2 = Math.abs(x2);
             double Fx1 = F(x1) * flag1, Fx2 = F(x2) * flag2;
             double ans2 = notail(Fx2 - Fx1);
-            String str_ans1 = String.format("%.15f", ans1), str_ans2 = String.format("%.5f", ans2);
-            return "10. а) " + str_ans1 + "; б) " + str_ans2 + ".";
+            return "10. а) " + formatNum(ans1) + "; б) " + formatNum(ans2) + ".";
         }else {
             int flag;
             double x1 = notail(((double) count / 2 - count * boy) / sqrt(count * boy * (1 - boy)));
@@ -52,7 +51,7 @@ public class Task10 extends Task {
             double ans1 = notail(f(flag * x1) / sqrt(count * boy * (1 - boy)));
             double x2 = abs(notail((count - count * boy) / sqrt(count * boy * (1 - boy))));
             double ans2 = notail(F(x2) - flag * F(abs(x1)));
-            return "10. a)" + ans1 + "; b) " + ans2;
+            return "10. a)" + formatNum(ans1) + "; b) " + formatNum(ans2);
         }
     }
 }

@@ -8,10 +8,10 @@ public class Task13 extends Task {
     public String fill() {
         if (variant == 5) {
             return  "13. Составить ряд распределения числа попаданий в цель, если произведено " + shoot + " выстрелов,\n" +
-                    " а вероятность попадания при одном выстреле равна " + ver + ". Найти M(X) и D(X) этой случайной\n" +
+                    " а вероятность попадания при одном выстреле равна " + formatNum(ver) + ". Найти M(X) и D(X) этой случайной\n" +
                     " величины.\n";
         } else {
-            return "13. Вероятность приема сигнала равна "+signal+". Сигнал передаётся\n" +
+            return "13. Вероятность приема сигнала равна "+formatNum(signal)+". Сигнал передаётся\n" +
                     count+" раз. Составить ряд распределения числа передач, \n" +
                     " в которых сигнал будет принят. Найти M(X) и D(X)\n" +
                     "этой случайной величины.";
@@ -21,11 +21,11 @@ public class Task13 extends Task {
         if(variant == 5) {
             double MX = notail(shoot*ver);
             double DX = notail(shoot*ver*(1-ver));
-            return "13. M(X) = " + MX + "; D(X) = " + DX + ".";
+            return "13. M(X) = " + formatNum(MX) + "; D(X) = " + formatNum(DX) + ".";
         }else {
             double MX = notail(count*signal);
             double DX = notail(count*signal*(1-signal));
-            return "13. MX = "+MX+"; DX = "+DX;
+            return "13. MX = "+formatNum(MX)+"; DX = "+formatNum(DX);
         }
     }
     public String[][] answerTable() {
@@ -38,7 +38,8 @@ public class Task13 extends Task {
             for (int i = 0; i <= shoot; i++)
                 ansTable[0][i+2] = Integer.toString(i);
             for (int i = 0; i <= shoot; i++) {
-                ansTable[1][i+2] = String.format("%.5f", C(shoot, i) * Math.pow((1 - ver), shoot - i) * Math.pow(ver, i));
+                double tmp = C(shoot, i) * Math.pow((1 - ver), shoot - i) * Math.pow(ver, i);
+                ansTable[1][i+2] = String.format("%.5f", tmp);
             }
             return ansTable;
         } else {
@@ -50,7 +51,8 @@ public class Task13 extends Task {
             for (int i = 0; i <= count; i++)
                 ansTable[0][i+2] = Integer.toString(i);
             for (int i = 0; i <= count; i++) {
-                ansTable[1][i+2] = String.format("%.5f", (notail(C(count, i) * Math.pow((1 - signal), count - i) * Math.pow(signal, i))));
+                double tmp = notail(C(count, i) * Math.pow((1 - signal), count - i) * Math.pow(signal, i));
+                ansTable[1][i+2] = String.format("%.5f", tmp);
             }
             return ansTable;
         }

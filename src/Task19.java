@@ -9,21 +9,21 @@ public class Task19 extends Task {
     public String fill() {
         if (variant == 5) {
             return "19. Станок-автомат изготавливает валики, контролируя их диаметр X. Считая, что X распределено\n" +
-                    " нормально (m = " + m2 + " мм, σ = " + sigma2 + " мм), найти интервал, в котором с вероятностью 0,9973 будут\n" +
+                    " нормально (m = " + m2 + " мм, σ = " + formatNum(sigma2) + " мм), найти интервал, в котором с вероятностью 0,9973 будут\n" +
                     " заключены диаметры изготавливаемых валиков.\n";
         } else {
             return "19. Отклонение длины L изготавливаемых деталей от\n" +
                     "стандарта есть случайная величина, распределенная по\n" +
-                    "нормальному закону (m = " + m1 + ", σ = " + sigma1 + " см). Если стандартная\n" +
+                    "нормальному закону (m = " + m1 + ", σ = " + formatNum(sigma1) + " см). Если стандартная\n" +
                     "длина детали равна 40 см, то в каком диапазоне окажутся\n" +
-                    "длины деталей с вероятностью " + p_long + "?";
+                    "длины деталей с вероятностью " + formatNum(p_long) + "?";
         }
     }
 
     public String answer() {
         if (variant == 5) {
             double delta = 3 * sigma2;
-            String ans = notail(m2 - delta) + " < X < " + notail(m2 + delta);
+            String ans = formatNum(notail(m2 - delta)) + " < X < " + formatNum(notail(m2 + delta));
             return "19. " + ans + ".";
         } else {
             p_long /= 2;
@@ -35,7 +35,7 @@ public class Task19 extends Task {
                 }
             double x1 = notail(m1 - d);
             double x2 = notail(m1 + d);
-            return "19. " + x1 + " < X < " + x2;
+            return "19. " + formatNum(x1) + " < X < " + formatNum(x2);
         }
     }
 }

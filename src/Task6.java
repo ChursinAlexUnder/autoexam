@@ -22,7 +22,7 @@ public class Task6 extends Task {
             double ans1 = notail(knowTick1 / allTick1);
             double ans2 = notail(((allTick1 - knowTick1) / allTick1) * (knowTick1 / (allTick1 - 1)));
             double ans = notail(ans1 + ans2);
-            return "6. " + ans + ".";
+            return "6. " + formatNum(ans) + ".";
         }else {
             int numerator = 1;
             for (int i = count2; i > count2 - count3; i--)
@@ -31,8 +31,7 @@ public class Task6 extends Task {
             for (int i = count1; i > count1 - count3; i--)
                 znam *= i;
             double ans = notail((double) numerator / znam);
-            String str_ans = String.format("%.6f", ans);
-            return "6. " + str_ans;
+            return "6. " + formatNum(ans);
         }
     }
 }

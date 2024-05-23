@@ -71,7 +71,7 @@ public class Task15 extends Task {
         double cc1 = Double.parseDouble(tableX[0][4]) * Double.parseDouble(tableX[1][4]);
         tmpmx += aa1;
         tmpmx += cc1;
-        String mx = notail(tmpmx) + " + " + tableX[0][3] + "p";
+        String mx = formatNum(notail(tmpmx)) + " + " + tableX[0][3] + "p";
         double tmpmx2 = 0;
         tmpmx2 += Math.pow(Double.parseDouble(tableX[0][2]), 2) * Double.parseDouble(tableX[1][2]);
         tmpmx2 += Math.pow(Double.parseDouble(tableX[0][4]), 2) * Double.parseDouble(tableX[1][4]);
@@ -81,8 +81,8 @@ public class Task15 extends Task {
             flag2 = -1;
         }
         double sloniktmp = slonik;
-        String slonik2 = String.format("%.3f", slonik);
-        String dx = notail(tmpmx2) + ((flag2 == 1) ? " + " : " ") + slonik2 + "p - " + notail(Math.pow(Double.parseDouble(tableX[0][3]), 2)) + "p^2";
+        String slonik2 = formatNum(slonik);
+        String dx = formatNum(notail(tmpmx2)) + ((flag2 == 1) ? " + " : " ") + slonik2 + "p - " + formatNum(notail(Math.pow(Double.parseDouble(tableX[0][3]), 2))) + "p^2";
 
         double mxy = 0, mxy2 = 0;
         for (int i = 2; i <= 3; i++) {
@@ -92,11 +92,11 @@ public class Task15 extends Task {
         double dxy = notail(mxy2 - Math.pow(mxy, 2));
         mxy = notail(mxy);
         // в
-        String mz1 = notail(2 * tmpmx + mxy) + " + " + notail((Double.parseDouble(tableX[0][3]) * 2)) + "p";
+        String mz1 = formatNum(notail(2 * tmpmx + mxy)) + " + " + formatNum(notail((Double.parseDouble(tableX[0][3]) * 2))) + "p";
         double temp = Double.parseDouble(tableX[0][3]) * mxy;
-        String mz2 = notail(tmpmx * mxy) + ((temp >= 0) ? " + " : " ") + notail(temp) + "p";
+        String mz2 = formatNum(notail(tmpmx * mxy)) + ((temp >= 0) ? " + " : " ") + formatNum(notail(temp)) + "p";
         double slonik3 = sloniktmp * 4;
-        String dz1 = notail(4 * tmpmx2 + dxy) + ((slonik3 >= 0) ? " + " : " ") + String.format("%.3f", notail(slonik3)) + "p - " + notail(Math.pow(Double.parseDouble(tableX[0][3]), 2) * 4) + "p^2";
+        String dz1 = formatNum(notail(4 * tmpmx2 + dxy)) + ((slonik3 >= 0) ? " + " : " ") + formatNum(notail(slonik3)) + "p - " + formatNum(notail(Math.pow(Double.parseDouble(tableX[0][3]), 2) * 4)) + "p^2";
         double tmpmz2 = 0;
         tmpmz2 += Math.pow(Double.parseDouble(tableX[0][2]), 2) * Double.parseDouble(tableX[1][2]);
         tmpmz2 += Math.pow(Double.parseDouble(tableX[0][4]), 2) * Double.parseDouble(tableX[1][4]);
@@ -105,9 +105,9 @@ public class Task15 extends Task {
         double mxmy_mx2 = 2 * tmpmx * mxy * Double.parseDouble(tableX[0][3]) * mxy;
         double mxmy = Math.pow(tmpmx * mxy, 2);
         double mxp = Math.pow(Double.parseDouble(tableX[0][3]) * mxy, 2);
-        String dz2 = notail((tmpmz2 - mxmy)) + (((slonik4 - mxmy_mx2) >= 0) ? " + " : " ") + String.format("%.3f", notail(slonik4 - mxmy_mx2)) + "p - " + notail(mxp) + "p^2";
+        String dz2 = formatNum(notail((tmpmz2 - mxmy))) + (((slonik4 - mxmy_mx2) >= 0) ? " + " : " ") + formatNum(notail(slonik4 - mxmy_mx2)) + "p - " + formatNum(notail(mxp)) + "p^2";
 
-        return "15. а) M(X) = " + mx + "; D(X) = " + dx + "; M(Y) = " + notail(mxy) + "; D(Y) = " + notail(dxy) + ";\n" +
+        return "15. а) M(X) = " + mx + "; D(X) = " + dx + "; M(Y) = " + formatNum(notail(mxy)) + "; D(Y) = " + formatNum(notail(dxy)) + ";\n" +
                 "в) M(Z1) = " + mz1 + "; D(Z1) = " + dz1 + "; M(Z2) = " + mz2 + "; D(Z2) = " + dz2 + ".";
     }
 
@@ -128,16 +128,16 @@ public class Task15 extends Task {
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 1; j++) {
                 if (i == 1) {
-                    ansTable[1][k + 2] = Double.parseDouble(tableY[1][j + 2]) + "p";
+                    ansTable[1][k + 2] = formatNum(Double.parseDouble(tableY[1][j + 2])) + "p";
                 } else {
-                    ansTable[1][k + 2] = Double.toString(notail(Double.parseDouble(tableX[1][i + 2]) * Double.parseDouble(tableY[1][j + 2])));
+                    ansTable[1][k + 2] = formatNum(notail(Double.parseDouble(tableX[1][i + 2]) * Double.parseDouble(tableY[1][j + 2])));
                 }
                 k++;
             }
         }
         return ansTable;
     }
-    public String[][] answerTableZ2 () {
+    public String[][] answerTableZ2() {
         String[][] ansTable = new String[2][8];
         ansTable[0][0] = "№";
         ansTable[1][0] = "15";
@@ -154,9 +154,9 @@ public class Task15 extends Task {
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 1; j++) {
                 if (i == 1) {
-                    ansTable[1][k + 2] = Double.parseDouble(tableY[1][j + 2]) + "p";
+                    ansTable[1][k + 2] = formatNum(Double.parseDouble(tableY[1][j + 2])) + "p";
                 } else {
-                    ansTable[1][k + 2] = Double.toString(notail(Double.parseDouble(tableX[1][i + 2]) * Double.parseDouble(tableY[1][j + 2])));
+                    ansTable[1][k + 2] = formatNum(notail(Double.parseDouble(tableX[1][i + 2]) * Double.parseDouble(tableY[1][j + 2])));
                 }
                 k++;
             }
