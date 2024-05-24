@@ -222,7 +222,7 @@ public class MyPanel extends JPanel {
                                                 if (col >= 2 && row == 1) {
                                                     cell.setText(formatNum(Double.parseDouble(task[numbertask].getTableY()[row][col])));
                                                 } else {
-                                                    cell.setText(task[numbertask].getTableX()[row][col]);
+                                                    cell.setText(task[numbertask].getTableY()[row][col]);
                                                 }
                                                 cell.setWidth("800");
                                             }
